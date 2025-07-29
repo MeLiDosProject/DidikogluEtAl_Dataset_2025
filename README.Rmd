@@ -24,6 +24,8 @@ knitr::opts_chunk$set(
 [![DOI](https://zenodo.org/badge/1028303903.svg)](https://doi.org/10.5281/zenodo.16568109)
 <!-- badges: end -->
 
+![Overview of light exposure data. (A) location of data collection. (B) collection periods for participants, (C) photoperiods, and (D) double plot of median, interquartile range (50%), 75%, and 95% ribbons of light exposure across all participants. Shaded areas indicate nighttime from civil dusk to civil dawn.](output/figures/Figure_1.png)
+
 ### About this repository
 
 This repository contains the comprehensive dataset for the [MeLiDos](www.melidos.eu) field study site of Kumasi, Ghana. Data were collected by [Izmir Institute of Technology (IZTECH)](https://en.iyte.edu.tr) and are further processed and analysed by the [Translational Sensory & Circadian Neuroscience Unit (TSCN)](https://www.tscnlab.org). A detailed description of the experiment is available in [Guidolin et al., 2024](https://www.ncbi.nlm.nih.gov/pubmed/39592960).

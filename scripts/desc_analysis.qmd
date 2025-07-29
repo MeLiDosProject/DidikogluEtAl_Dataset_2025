@@ -273,10 +273,20 @@ ggplot() +
     aes(label = capitals_info$label, lat = geometry$y, lon = geometry$x, fill = color),
     nudge_y = 12,
     size = 3,
-    alpha = 0.35,
+    alpha = 0.75,
     box.padding = 0.35,
     point.padding = 0.5,
     segment.color = 'grey50',
+  ) + # Capitals
+  geom_sf_text(
+    data = capitals,
+    aes(label = capitals_info$label, lat = geometry$y, lon = geometry$x),
+    nudge_y = 12,
+    size = 3,
+    box.padding = 0.35,
+    label.size = 0,
+    point.padding = 0.5,
+    segment.color = 'grey50', color = "white"
   ) + # Capitals
   scale_fill_manual(values = country_colors) +
   theme_void() +

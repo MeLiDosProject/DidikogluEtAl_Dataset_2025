@@ -2,26 +2,26 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: 'Personal light exposure dataset for Kumasi, Ghana'
+title: 'Personal light exposure dataset for Izmir, Türkiye'
 message: >-
   If you use this dataset, please cite it using the metadata
   from this file.
 type: dataset
 authors:
-  - given-names: Kwadwo Owusu
-    family-names: Akuffo
-    email: akuffokwadwoowusu@knust.edu.gh
-    affiliation: >-
-      Kwame Nkrumah University of Science and Technology
-      (KNUST)
-    orcid: 'https://orcid.org/0000-0001-6683-249X'
-  - given-names: Gabriel Kwaku
-    family-names: Agbeshie
-    email: agbeshiekwakugabriel@gmail.com
-    affiliation: >-
-      Kwame Nkrumah University of Science and Technology
-      (KNUST)
-    orcid: 'https://orcid.org/0009-0009-6135-7111'
+  - given-names: Altug
+    family-names: Didikoglu
+    orcid: 'https://orcid.org/0000-0002-5582-6956'
+    affiliation: 'Izmir Institute of Technology, Izmir, Türkiye'
+    email: altugdidikoglu@iyte.edu.tr
+  - given-names: Sena Gulsum
+    family-names: Akgun
+    affiliation: 'Izmir Institute of Technology, Izmir, Türkiye'
+  - given-names: Sema Nur
+    family-names: Aydin
+    affiliation: 'Izmir Institute of Technology, Izmir, Türkiye'
+  - family-names: Kayar
+    given-names: Zeynep
+    affiliation: 'Izmir Institute of Technology, Izmir, Türkiye'
   - given-names: Johannes
     family-names: Zauner
     email: johannes.zauner@tum.de
@@ -37,16 +37,24 @@ authors:
       for Biological Cybernetics; TUM Institute for Advanced
       Study (TUM-IAS)
     orcid: 'https://orcid.org/0000-0002-8572-9268'
-repository-code: 'https://github.com/MeLiDosProject/AkuffoEtAl_Dataset_2025'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.16568110
+    description: Zenodo archive (V1.0.0)
+  - type: doi
+    value: 10.5281/zenodo.16568109
+    description: Zenodo Archive (latest version)
+repository-code: >-
+  https://github.com/MeLiDosProject/DidikogluEtAl_Dataset_2025
 url: 'https://www.melidos.eu'
 abstract: >-
   This repository contains the comprehensive dataset for the
-  MeLiDos field study site of Kumasi, Ghana. Data were
-  collected by Kwame Nkrumah University of Science and
-  Technology (KNUST) and are further processed and analysed
-  by the Translational Sensory & Circadian Neuroscience Unit
-  (TSCN). A detailed description of the experiment is
-  available in Guidolin et al., 2024.
+  MeLiDos field study site of Izmir, Türkiye. Data were
+  collected by Izmir Institute of Technology (IZTECH)  and
+  are further processed and analysed by the Translational
+  Sensory & Circadian Neuroscience Unit (TSCN). A detailed
+  description of the experiment is available in Guidolin et
+  al., 2024.
 keywords:
   - light exposure
   - wearable
@@ -55,6 +63,6 @@ keywords:
   - melanopic
   - naturalistic setting
 license: CC0-1.0
-commit: 321ea1806d9f266ecd8e87305be857861f7e4180
+commit: 8759a19ca39d797b18154c54d9abf0b693b6995c
 version: 1.0.0
-date-released: '2025-06-02'
+date-released: '2025-07-29'

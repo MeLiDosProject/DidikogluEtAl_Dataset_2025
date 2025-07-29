@@ -12,6 +12,7 @@
 
 <!-- badges: start -->
 
+[![DOI](https://zenodo.org/badge/1028303903.svg)](https://doi.org/10.5281/zenodo.16568109)
 <!-- badges: end -->
 
 ### About this repository
@@ -44,8 +45,9 @@ APA reference:
 
 > Didikoglu, A., Akgun, S. G., Aydin, S. N., Kayar, Z., Zauner, J., &
 > Spitschan, M. (2025). Personal light exposure dataset for Izmir,
-> Türkiye (Version 1.0.0) \[Data set\].
-> <https://github.com/MeLiDosProject/DidikogluEtAl_Dataset_2025>
+> Türkiye (Version 1.0.0) \[Data set\]. URL:
+> <https://github.com/MeLiDosProject/DidikogluEtAl_Dataset_2025>. DOI:
+> doi.org/10.5281/zenodo.15576731
 
 ## Summary of the dataset
 

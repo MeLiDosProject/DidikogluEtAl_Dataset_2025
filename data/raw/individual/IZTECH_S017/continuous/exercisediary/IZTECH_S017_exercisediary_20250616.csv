@@ -1,0 +1,9 @@
+﻿record_id,redcap_repeat_instrument,redcap_repeat_instance,form_1_complete,instructions,intensity,location,type,commute,sedentary,light_glasses,startdate_3,enddate_3
+IZTECH_S017,,,2,,,,,,,,,
+IZTECH_S017,egzersiz_gnl,2,,1,3,1,"Hızlı tempoda yürümek",60,850,0,"2025-05-27 02:18:53","2025-05-27 02:22:53"
+IZTECH_S017,egzersiz_gnl,3,,1,4,,,30,870,,"2025-05-28 08:52:01","2025-05-28 08:54:10"
+IZTECH_S017,egzersiz_gnl,4,,1,3,1,"Bir yerden bir yere biraz hızlı bir tempoda yürüdüm",50,,1,"2025-05-28 23:46:30","2025-05-28 23:48:56"
+IZTECH_S017,egzersiz_gnl,5,,1,3,1,"Dışarıda yürüyerek yolculuk yapmak ",60,780,1,"2025-05-29 23:49:33","2025-05-29 23:52:02"
+IZTECH_S017,egzersiz_gnl,6,,1,1,1,Koşmak,80,860,1,"2025-05-30 23:23:55","2025-05-30 23:27:46"
+IZTECH_S017,egzersiz_gnl,7,,1,3,1,Yürümek,50,800,1,"2025-05-31 21:29:59","2025-05-31 21:30:39"
+IZTECH_S017,egzersiz_gnl,8,,1,4,,,30,930,,"2025-06-01 23:20:39","2025-06-01 23:21:20"

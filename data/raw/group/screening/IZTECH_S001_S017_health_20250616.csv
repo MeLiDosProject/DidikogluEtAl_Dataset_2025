@@ -1,0 +1,35 @@
+﻿record_id,redcap_repeat_instrument,redcap_repeat_instance,consent,medication,medication_type,tobacco,drugs,disorder,gen_health,visual_acuity
+IZTECH_S001,,,0,,,,,,,
+IZTECH_S001,salk_bilgileri,1,,0,,0,0,0,2,2
+IZTECH_S002,,,0,,,,,,,
+IZTECH_S002,salk_bilgileri,1,,1,"apikobal, Coledan d",0,0,0,2,1
+IZTECH_S003,,,0,,,,,,,
+IZTECH_S003,salk_bilgileri,1,,0,,0,0,0,3,2
+IZTECH_S004,,,0,,,,,,,
+IZTECH_S004,salk_bilgileri,1,,0,,0,0,0,2,1
+IZTECH_S005,,,0,,,,,,,
+IZTECH_S005,salk_bilgileri,1,,0,,0,0,0,1,1
+IZTECH_S006,,,0,,,,,,,
+IZTECH_S006,salk_bilgileri,1,,0,,0,0,0,2,1
+IZTECH_S007,,,0,,,,,,,
+IZTECH_S007,salk_bilgileri,1,,0,,0,0,0,1,1
+IZTECH_S008,,,0,,,,,,,
+IZTECH_S008,salk_bilgileri,1,,0,,0,0,0,2,2
+IZTECH_S009,,,0,,,,,,,
+IZTECH_S009,salk_bilgileri,1,,0,,0,0,0,0,1
+IZTECH_S010,,,0,,,,,,,
+IZTECH_S010,salk_bilgileri,1,,1,Desmont,0,0,0,1,1
+IZTECH_S011,,,0,,,,,,,
+IZTECH_S011,salk_bilgileri,1,,0,,0,0,0,1,1
+IZTECH_S012,,,0,,,,,,,
+IZTECH_S012,salk_bilgileri,1,,1,"İki-üç haftada bir arveles ağrı kesici gerekebiliyor",0,0,0,1,3
+IZTECH_S013,,,0,,,,,,,
+IZTECH_S013,salk_bilgileri,1,,1,zoretanin,0,0,0,2,1
+IZTECH_S014,,,0,,,,,,,
+IZTECH_S014,salk_bilgileri,1,,0,,0,0,0,2,3
+IZTECH_S015,,,0,,,,,,,
+IZTECH_S015,salk_bilgileri,1,,0,,0,0,0,3,1
+IZTECH_S016,,,0,,,,,,,
+IZTECH_S016,salk_bilgileri,1,,0,,0,0,0,2,3
+IZTECH_S017,,,0,,,,,,,
+IZTECH_S017,salk_bilgileri,1,,1,Geralghine-K,0,0,0,1,3

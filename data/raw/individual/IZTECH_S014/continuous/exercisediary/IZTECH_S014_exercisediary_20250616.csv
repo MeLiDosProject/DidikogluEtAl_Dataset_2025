@@ -1,0 +1,9 @@
+﻿record_id,redcap_repeat_instrument,redcap_repeat_instance,form_1_complete,instructions,intensity,location,type,commute,sedentary,light_glasses,startdate_3,enddate_3
+IZTECH_S014,,,2,,,,,,,,,
+IZTECH_S014,egzersiz_gnl,2,,1,3,1,Yürüyüş,90,120,1,"2025-04-28 23:08:45","2025-04-28 23:09:55"
+IZTECH_S014,egzersiz_gnl,3,,1,3,1,Yürüyüş,30,520,1,"2025-04-29 23:23:29","2025-04-29 23:24:58"
+IZTECH_S014,egzersiz_gnl,4,,1,2,1,Yürüyüş,60,420,1,"2025-04-30 23:08:51","2025-04-30 23:09:57"
+IZTECH_S014,egzersiz_gnl,5,,1,3,1,Yürüyüş,30,520,1,"2025-05-01 23:19:50","2025-05-01 23:20:29"
+IZTECH_S014,egzersiz_gnl,6,,1,1,2,"şirot(?) nasıl yazıldığını bilmiyorum",60,520,0,"2025-05-02 23:43:05","2025-05-02 23:43:54"
+IZTECH_S014,egzersiz_gnl,7,,1,1,2,"Şirot(?) nasıl yazıldığından emin değilim",90,520,0,"2025-05-04 01:37:03","2025-05-04 01:37:57"
+IZTECH_S014,egzersiz_gnl,8,,1,2,1,Yürüyüş,120,520,1,"2025-05-04 23:33:52","2025-05-04 23:34:15"

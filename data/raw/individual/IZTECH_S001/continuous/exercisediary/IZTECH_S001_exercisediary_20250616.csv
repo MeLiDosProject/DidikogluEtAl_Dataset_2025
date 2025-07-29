@@ -1,0 +1,9 @@
+﻿record_id,redcap_repeat_instrument,redcap_repeat_instance,form_1_complete,instructions,intensity,location,type,commute,sedentary,light_glasses,startdate_3,enddate_3
+IZTECH_S001,,,2,,,,,,,,,
+IZTECH_S001,egzersiz_gnl,2,,1,2,3,"Hatha Yoga ve yürüyüş ",70,300,1,"2024-12-23 22:20:11","2024-12-23 22:22:05"
+IZTECH_S001,egzersiz_gnl,3,,1,1,3,"25 dk kosu , 40 dk yin yoga , 35 dk cardio",20,300,1,"2024-12-25 22:07:10","2024-12-25 22:08:47"
+IZTECH_S001,egzersiz_gnl,4,,1,2,3,"Açık Alan; Yoga/ Kapalı Alan :Crossfire ",40,150,1,"2024-12-26 22:05:00","2024-12-26 22:06:15"
+IZTECH_S001,egzersiz_gnl,5,,1,2,1,"Pilates ve Cross fit ",40,150,1,"2024-12-27 22:46:40","2024-12-27 22:47:55"
+IZTECH_S001,egzersiz_gnl,6,,1,1,1,"Kosu ve  Pilates",50,150,1,"2024-12-28 23:03:50","2024-12-28 23:04:50"
+IZTECH_S001,egzersiz_gnl,7,,1,2,1,"bisiklete binmek",250,380,1,"2024-12-29 21:54:30","2024-12-29 21:56:04"
+IZTECH_S001,egzersiz_gnl,8,,1,1,3,"Açık alan kosu ve bisiklet / Kapalı alan yoga ve reformer pilates",45,200,1,"2024-12-30 23:01:42","2024-12-30 23:03:16"

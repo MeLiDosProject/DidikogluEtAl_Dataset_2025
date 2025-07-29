@@ -1,0 +1,8 @@
+﻿record_id,redcap_repeat_instrument,redcap_repeat_instance,form_1_complete,instructions,intensity,location,type,commute,sedentary,light_glasses,startdate_3,enddate_3
+IZTECH_S011,,,2,,,,,,,,,
+IZTECH_S011,egzersiz_gnl,2,,1,4,,,15,800,,"2025-04-15 01:53:04","2025-04-15 01:54:26"
+IZTECH_S011,egzersiz_gnl,3,,1,4,,,15,600,,"2025-04-15 22:02:03","2025-04-15 22:02:53"
+IZTECH_S011,egzersiz_gnl,4,,1,4,,,15,700,,"2025-04-17 01:17:06","2025-04-17 01:17:30"
+IZTECH_S011,egzersiz_gnl,5,,1,4,,,15,700,,"2025-04-18 01:23:52","2025-04-18 01:24:12"
+IZTECH_S011,egzersiz_gnl,6,,1,4,,,15,800,,"2025-04-20 03:21:11","2025-04-20 03:21:39"
+IZTECH_S011,egzersiz_gnl,7,,1,4,,,10,800,,"2025-04-21 02:08:28","2025-04-21 02:08:46"

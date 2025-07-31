@@ -8,7 +8,7 @@
 
 ### Personal light exposure dataset for Izmir, Türkiye; collected by Izmir Institute of Technology (IZTECH) following the protocol of Guidolin et al. 2024 (MeLiDos field study)
 
-**Version v1.0.0**
+**Version v1.0.1**
 
 <!-- badges: start -->
 
@@ -56,7 +56,7 @@ APA reference:
 
 > Didikoglu, A., Akgun, S. G., Aydin, S. N., Kayar, Z., Zauner, J., &
 > Spitschan, M. (2025). Personal light exposure dataset for Izmir,
-> Türkiye (Version 1.0.0) \[Data set\]. URL:
+> Türkiye (Version 1.0.1) \[Data set\]. URL:
 > <https://github.com/MeLiDosProject/DidikogluEtAl_Dataset_2025>. DOI:
 > doi.org/10.5281/zenodo.15576731
 
@@ -116,7 +116,7 @@ The following files are included with this Dataset:
                          screening/
 
 - `LICENSE`: Licensing terms. This dataset is published with a
-  permissive CC0-1.0 license
+  permissive CC-BY-4.0 license
 
 All data are anonymous.
 

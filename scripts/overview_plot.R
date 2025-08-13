@@ -176,7 +176,7 @@ grand_overview <- function(dataset, #light exposure dataset
       glue("Possible and <b style = 'color:{site_color[site]}'>actual
            </b> photoperiod (hours) at {coordinates_string}")
     
-    photoperiods_range <- photoperiods$photoperiod |> range() |> round(1)
+    photoperiods_range <- limits |> range() |> round(1)
     
     photoperiods_seq <- 
       inject(seq(!!!photoperiods_range, by = photoperiod_sequence) |> 

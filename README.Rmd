@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 
 ### About this repository
 
-This repository contains the comprehensive dataset for the [MeLiDos](www.melidos.eu) field study site of Kumasi, Ghana. Data were collected by [Izmir Institute of Technology (IZTECH)](https://en.iyte.edu.tr) and are further processed and analysed by the [Translational Sensory & Circadian Neuroscience Unit (TSCN)](https://www.tscnlab.org). A detailed description of the experiment is available in [Guidolin et al., 2024](https://www.ncbi.nlm.nih.gov/pubmed/39592960).
+This repository contains the comprehensive dataset for the [MeLiDos](www.melidos.eu) field study site of Izmir, Türkiye. Data were collected by [Izmir Institute of Technology (IZTECH)](https://en.iyte.edu.tr) and are further processed and analysed by the [Translational Sensory & Circadian Neuroscience Unit (TSCN)](https://www.tscnlab.org). A detailed description of the experiment is available in [Guidolin et al., 2024](https://www.ncbi.nlm.nih.gov/pubmed/39592960).
 
 This repository is transitioning towards a [FAIR](https://www.go-fair.org/fair-principles/) and fully human and machine-readable light exposure dataset, based on a [community-based and peer-reviewed Metadata descriptor](https://bmcdigitalhealth.biomedcentral.com/articles/10.1186/s44247-024-00113-9). As part of this transition, files will be converted from semi-rectangular data, to fully [tabular data](https://specs.frictionlessdata.io/tabular-data-package/). Further, metadata will be added and converted from XLSX to JSON. For full traceability, all versions will be archived in [Zenodo](https://zenodo.org) and are accessible through their own persistent identifier (DOI).
 

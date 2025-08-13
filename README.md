@@ -29,7 +29,7 @@ dawn.</figcaption>
 ### About this repository
 
 This repository contains the comprehensive dataset for the
-[MeLiDos](www.melidos.eu) field study site of Kumasi, Ghana. Data were
+[MeLiDos](www.melidos.eu) field study site of Izmir, Türkiye. Data were
 collected by [Izmir Institute of Technology
 (IZTECH)](https://en.iyte.edu.tr) and are further processed and analysed
 by the [Translational Sensory & Circadian Neuroscience Unit

@@ -26,6 +26,8 @@ library(rnaturalearthdata)
 library(sf)
 library(patchwork)
 library(rlang)
+
+source("overview_plot.R")
 ```
 
 # Overview
@@ -141,12 +143,13 @@ data_cleaned |> gap_table(MEDI) |> cols_hide(ends_with("_n"))
 
 ```{r}
 #| warning: false
+#| message: false
 #| fig-height: 8
 #| fig-width: 12
 
 data |> 
   mutate(Id = Id |> fct_relabel(\(x) str_remove(x, "IZTECH_"))) |> 
-grand_overview(coordinates, "Izmir", "Turkey", country_colors)
+grand_overview(coordinates, "Izmir", "Turkey", country_colors, map_site_label_color = "white")
 
 ggsave("../output/figures/Figure_1.png", width = 17, height = 10, scale = 2, units = "cm")
 ```

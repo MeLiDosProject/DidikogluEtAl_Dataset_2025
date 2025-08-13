@@ -1,4 +1,17 @@
 #this script creates a four-panel overview plot
+library(LightLogR)
+library(glue)
+library(tidyverse)
+library(gt)
+library(readxl)
+library(cowplot)
+library(legendry)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(sf)
+library(patchwork)
+library(rlang)
+
 
 grand_overview <- function(dataset, #light exposure dataset
                            coordinates, #latitude, longitude

@@ -147,7 +147,7 @@ data_cleaned |> gap_table(MEDI) |> cols_hide(ends_with("_n"))
 #| fig-height: 8
 #| fig-width: 12
 
-data |> 
+data_cleaned |> 
   mutate(Id = Id |> fct_relabel(\(x) str_remove(x, "IZTECH_"))) |> 
 grand_overview(coordinates, "Izmir", "Turkey", country_colors, map_site_label_color = "white")
 

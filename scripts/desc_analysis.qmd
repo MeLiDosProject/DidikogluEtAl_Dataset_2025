@@ -27,7 +27,7 @@ library(sf)
 library(patchwork)
 library(rlang)
 
-source("overview_plot.R")
+source("https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/overview_plot.R")
 ```
 
 # Overview

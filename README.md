@@ -146,7 +146,7 @@ data within each participant folder follows the following structure.
 | **continuous/actlumus_environment** | txt files from ActLumus placed on the south-facing exterior wall of the Izmir Institute of Technology Molecular Biology and Genetics Building, one for each participant. Also, a report (`_Report`) from the device. |
 | **continuous/currenconditions/** | Questionnaire comprising 3 questionnaires on 1) current mood (MoodZoom), 2) light conditions (custom) and 3) alertness (Karolinska Sleepiness Scale). Completed 4/times per day, at 11:00, 14:00, 17:00 and 20:00. Participants instructed to completed as close as possible to the indicated times. The participant sometimes additionally reported upon waking and before going to bed. |
 | **continuous/exercisediary/** | Custom made questionnaire on exercise. Completed daily in the evening |
-| **continuous/experiencelog/** | Custom made questionnaire about experiences wearing the light glasses. Completed any time participant had an experience to report (n\*\*o restrictions). |
+| **continuous/experiencelog/** | Custom made questionnaire about experiences wearing the light glasses. Completed any time participant had an experience to report (no restrictions). |
 | **continuous/mHLEA_digital/** | Custom made questionnaire to test Daily in the evening |
 | **continuous/mHLEA_paper/** | Custom made paper-based questionnaire to test Daily in the evening. This was transcribed to xlsx files by the experimenter after study end for each participant. |
 | **continuous/sleepdiary/** | Daily in the morning |

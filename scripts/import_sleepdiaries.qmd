@@ -1,0 +1,150 @@
+---
+title: "Import sleep diaries"
+author: "Johannes Zauner"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+---
+
+## Preface
+
+This document imports the `sleepdiaries` and shows descriptive statistics for the site.
+
+## Setup
+
+```{r}
+#| message: false
+library(tidyverse)
+library(LightLogR)
+library(glue)
+library(readxl)
+library(gt)
+library(gtsummary)
+source("https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/labeling.R")
+```
+
+Collect the necessary external information
+
+```{r}
+codebook <- 
+  read_csv(
+  "https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/codebook/MeLiDosMorningSleepDiaries_DataDictionary_2024-10-16.csv", show_col_types = FALSE
+  )
+#clean up labels
+codebook <-
+  codebook |> 
+    mutate(
+      `Field Label` = 
+        `Field Label` |> 
+        str_remove_all("<div class=\"rich-text-field-label\">|<p>|<em>|</em>|</p>|</div>")
+    )
+```
+
+
+## Collect files
+
+The following files contain sleep-diary information.
+
+```{r}
+#path to participants
+path_part1 <- "../data/raw/individual"
+#path to questionnaire
+path_part2 <- "/continuous/sleepdiary"
+#getting all subfolders
+folders <- dir(path_part1)
+#creating complete folder names
+paths <- glue("{path_part1}/{folders}{path_part2}")
+#collecting file names
+files <- list.files(paths, full.names = TRUE)
+```
+
+## Import files
+
+```{r}
+sleepdiary <- 
+  read_csv(files, show_col_types = FALSE) |> drop_na(redcap_repeat_instance)
+```
+
+### Check column types
+
+```{r}
+should_POSIXct <- c("bedtime", "sleep", "offset", "out_ofbed")
+should_numeric <- c("sleepdelay", "awakenings", "awake_duration", "sleepquality", "daytype2")
+should_character <- c("record_id", "comments")
+
+stopifnot(
+  "all of should_POSIXct need to be part of the dataset and of type POSIXct" =
+  should_POSIXct %in% (sleepdiary |> select(where(is.POSIXct)) |> names()),
+  "all of should_numeric need to be part of the dataset and of type numeric" =
+  should_numeric %in% (sleepdiary |> select(where(is.numeric)) |> names()),
+  "all of should_character need to be part of the dataset and of type numeric" =
+  should_character %in% (sleepdiary |> select(where(is.character)) |> names())
+  )
+```
+
+### Select relevant variables &nonempty rows
+
+```{r}
+sleepdiary <- 
+sleepdiary |> 
+  select(all_of(c(should_character, should_POSIXct, should_numeric)))
+```
+
+
+### Label variables
+
+```{r}
+sleepdiary <- 
+sleepdiary |> 
+  add_col_labels(codebook, var_col = `Variable / Field Name`, label_col = `Field Label`)
+```
+
+```{r}
+time_median <- function(datetime){
+  datetime |> 
+    LightLogR:::datetime_to_circular() |> 
+    median() |> 
+    LightLogR:::circular_to_hms() |> 
+    hms::round_hms(1)
+}
+
+nighttime_p25 <- function(datetime){
+  morning <- hms::as_hms(datetime) < 12*60*60
+  date(datetime) <- ifelse(morning, as.Date("2000-01-02"), as.Date("2000-01-01")) |> as.Date()
+  datetime |> 
+    quantile(0.25) |> 
+    hms::as_hms()
+}
+
+nighttime_p75 <- function(datetime){
+  morning <- hms::as_hms(datetime) < 12*60*60
+  date(datetime) <- ifelse(morning, as.Date("2000-01-02"), as.Date("2000-01-01")) |> as.Date()
+  datetime |> 
+    quantile(0.75) |> 
+    hms::as_hms()
+}
+
+daytime_p25 <- function(datetime){
+  hms::as_hms(datetime) |> quantile(0.25) |> hms::as_hms()
+}
+
+daytime_p75 <- function(datetime){
+  hms::as_hms(datetime) |> quantile(0.75) |> hms::as_hms()
+}
+
+```
+
+
+```{r}
+sleepdiary |> 
+  tbl_summary(include = -c(comments, record_id),
+              statistic = list(all_continuous() ~ "{median} ({p25}, {p75})", 
+                               all_categorical() ~ "{n} ({p}%)",
+                               c(bedtime, sleep)  ~ "{time_median} ({nighttime_p25}, {nighttime_p75})",
+                               c(offset, out_ofbed)  ~ "{time_median} ({daytime_p25}, {daytime_p75})"
+                               ),
+              type = awakenings ~ "continuous",
+              missing_text = "missing")
+```
+

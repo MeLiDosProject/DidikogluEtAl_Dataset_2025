@@ -22,6 +22,8 @@ library(readxl)
 library(gt)
 library(gtsummary)
 source("https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/labeling.R")
+source("https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/radio_factors.R")
+source("https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/time_summaries.R")
 ```
 
 Collect the necessary external information
@@ -95,56 +97,57 @@ sleepdiary |>
 ### Label variables
 
 ```{r}
-sleepdiary <- 
+sleepdiary <-
 sleepdiary |> 
+  add_radio_factors(codebook, 
+                    var_col = `Variable / Field Name`, 
+                    type_col = `Field Type`,
+                    levels_col = `Choices, Calculations, OR Slider Labels`
+                    ) |> 
   add_col_labels(codebook, var_col = `Variable / Field Name`, label_col = `Field Label`)
 ```
 
+### Calculate sleep and sleepduration
+
 ```{r}
-time_median <- function(datetime){
-  datetime |> 
-    LightLogR:::datetime_to_circular() |> 
-    median() |> 
-    LightLogR:::circular_to_hms() |> 
-    hms::round_hms(1)
-}
+sleepdiary <- 
+sleepdiary |> 
+  rename(wake = offset, sleepprep = sleep) |> 
+  mutate(sleep = sleepprep + dminutes(sleepdelay),
+         sleep_duration = wake - sleep
+  )
 
-nighttime_p25 <- function(datetime){
-  morning <- hms::as_hms(datetime) < 12*60*60
-  date(datetime) <- ifelse(morning, as.Date("2000-01-02"), as.Date("2000-01-01")) |> as.Date()
-  datetime |> 
-    quantile(0.25) |> 
-    hms::as_hms()
-}
-
-nighttime_p75 <- function(datetime){
-  morning <- hms::as_hms(datetime) < 12*60*60
-  date(datetime) <- ifelse(morning, as.Date("2000-01-02"), as.Date("2000-01-01")) |> as.Date()
-  datetime |> 
-    quantile(0.75) |> 
-    hms::as_hms()
-}
-
-daytime_p25 <- function(datetime){
-  hms::as_hms(datetime) |> quantile(0.25) |> hms::as_hms()
-}
-
-daytime_p75 <- function(datetime){
-  hms::as_hms(datetime) |> quantile(0.75) |> hms::as_hms()
-}
+attr(sleepdiary$sleep, "label") <- "Sleep onset (calculated)"
+attr(sleepdiary$sleep_duration, "label") <- "Sleep duration (calculated)"
 
 ```
 
+## Summarize diary results
 
 ```{r}
+table_sleep <- 
 sleepdiary |> 
   tbl_summary(include = -c(comments, record_id),
               statistic = list(all_continuous() ~ "{median} ({p25}, {p75})", 
                                all_categorical() ~ "{n} ({p}%)",
-                               c(bedtime, sleep)  ~ "{time_median} ({nighttime_p25}, {nighttime_p75})",
-                               c(offset, out_ofbed)  ~ "{time_median} ({daytime_p25}, {daytime_p75})"
+                               c(bedtime, sleep, sleepprep)  ~ "{time_median} ({nighttime_p25}, {nighttime_p75})",
+                               c(wake, out_ofbed)  ~ "{time_median} ({daytime_p25}, {daytime_p75})"
                                ),
               type = awakenings ~ "continuous",
-              missing_text = "missing")
+              missing_text = "missing") |> 
+  add_n() |> 
+  bold_labels() |> 
+  modify_header(label = "**Morning sleep diary**") |> 
+  modify_footnote_header("Nighttime variables center on midnight, daytime variables on noon; median for time is based on circular time", columns = stat_0, replace = FALSE)
+
+table_sleep
+
+gtsave(table_sleep |> as_gt(), filename = "../output/tables/table_sleepdiary.png")
+```
+
+### Export
+
+```{r}
+save(sleepdiary, file = "../data/imported/continuous/sleepdiaries.RData")
 ```
 

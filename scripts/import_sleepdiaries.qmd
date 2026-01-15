@@ -47,7 +47,7 @@ files <- filefinder("sleepdiary", continuous = TRUE)
 data <- read_csv(files, show_col_types = FALSE) |> drop_na(redcap_repeat_instance)
 #check column types
 coltype_check <- coltype_checker(codebook, data)
-stopifnot(coltype_check$ok)
+coltype_check$details |> gt()
 #collect relevant columns: POSIXct, Date & numeric
 relevant_columns <- 
   coltype_check$details |> 

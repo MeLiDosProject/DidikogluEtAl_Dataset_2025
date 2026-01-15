@@ -43,7 +43,7 @@ c("labeling",
 #collect codebook
 codebook <- 
   prepare_codebook("MeLiDosScreeningQuestionnaire_DataDictionary_2024-10-16.csv",
-                   "your_demographics") |> 
+                   c("online_screening_consent_form", "your_demographics")) |> 
   filter(!`Variable / Field Name` %in% c("email", "email_2"))
 #collect files
 files <- filefinder("demographics",individual = FALSE)
@@ -54,14 +54,13 @@ data <-
   mutate(native_language = as.logical(native_language))
 #check column types
 coltype_check <- coltype_checker(codebook, data)
-coltype_check$ok # the check is not ok, but all flagged columns are empty or ok
+coltype_check$details |> gt()
 #collect relevant columns
 relevant_columns <- 
   coltype_check$details |> 
-  pull(col) |> 
-  union("record_id", y = _)
+  pull(col)
 #select relevant columns
-data <- data |> select(all_of(relevant_columns))
+data <- data |> select(any_of(relevant_columns))
 #label variables
 data <-
 data |> 
@@ -74,7 +73,9 @@ data |>
 #reorder variables
 data <- 
   data |> 
-  dplyr::relocate(native_language, .before = language_specification)
+  dplyr::relocate(native_language, .before = language_specification) |> 
+  relocate(record_id) |> 
+  select(-consent)
 ```
 
 ## Summarize results

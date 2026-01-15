@@ -75,9 +75,9 @@ demographics</figcaption>
 
 <figure>
 <img src="output/tables/table_summary.png"
-alt="Summary table of personal light exposure" />
-<figcaption aria-hidden="true">Summary table of personal light
-exposure</figcaption>
+alt="Summary table of personal light exposure (eye-level data)" />
+<figcaption aria-hidden="true">Summary table of personal light exposure
+(eye-level data)</figcaption>
 </figure>
 
 ### Sleep

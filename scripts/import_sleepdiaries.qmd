@@ -57,7 +57,7 @@ relevant_columns <-
 #add specific character columns
 relevant_columns <- c("record_id", relevant_columns, "comments")
 #select relevant columns
-data <- data |> select(all_of(relevant_columns))
+data <- data |> select(any_of(relevant_columns))
 #label variables
 data <-
 data |> 

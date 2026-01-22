@@ -66,7 +66,7 @@ data |>
                     levels_col = `Choices, Calculations, OR Slider Labels`
                     ) |> 
   add_col_labels(codebook, var_col = `Variable / Field Name`, label_col = `Field Label`) |> 
-  relocate(any_of(relevant_columns))
+  relocate(record_id, any_of(codebook$`Variable / Field Name`))
 
 attr(data$record_id, "label") <- "Record ID"
 ```

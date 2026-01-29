@@ -44,8 +44,7 @@ c("labeling",
 #collect codebook
 codebook <- 
   prepare_codebook("MeLiDosDischargeQuestionnaire_DataDictionary_2024-10-16.csv",
-                   "your_light_behaviour_leba") |> 
-  filter(!`Variable / Field Name` %in% c("email", "email_2"))
+                   "your_light_behaviour_leba")
 #collect files
 files <- filefinder("discharge",individual = FALSE)
 #import files

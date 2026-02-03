@@ -188,7 +188,7 @@ table_general(
          identity_spec, future_use, ends_with("english"))
       ), 
   header = "Experience log")
-
+table
 gtsave(table |> as_gt(), filename = "../output/tables/table_experiencelog.png", vwidth = 800)
 ```
 

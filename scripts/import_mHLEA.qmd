@@ -190,7 +190,7 @@ data <-
 ```{r}
 data <- 
 data |> 
-  drop_na(activity) |> 
+  filter(!is.na(lightsource) | !is.na(activity)) |> 
   mutate(lightsource = str_remove_all(lightsource, "[^[:alpha:]]"),
          light_electric_indoor = str_detect(lightsource, "L|l"),
          light_electric_outdoor = str_detect(lightsource, "S|s"),
@@ -238,7 +238,9 @@ data |>
   mutate(
     across(
       contains("lightsource"), 
-               \(x) factor(x, 
+               \(x) x |> 
+                    str_to_upper() |> 
+                    factor( 
                            levels = names(factor_levels_mHLEA),
                            labels = factor_levels_mHLEA
                )

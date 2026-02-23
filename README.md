@@ -58,7 +58,7 @@ APA reference:
 > Spitschan, M. (2025). Personal light exposure dataset for Izmir,
 > Türkiye (Version 1.0.1) \[Data set\]. URL:
 > <https://github.com/MeLiDosProject/DidikogluEtAl_Dataset_2025>. DOI:
-> doi.org/10.5281/zenodo.15576731
+> doi.org/10.5281/zenodo.16568109
 
 ## Descriptive statistics
 

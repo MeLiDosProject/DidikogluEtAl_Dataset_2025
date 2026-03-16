@@ -187,6 +187,11 @@ data <- data |> left_join(data_llm, by = c("record_id", "comments"))
 attr(data$comments_english, "label") <- "Comments (English translation)"
 ```
 
+```{r}
+data <- 
+  data |> 
+  arrange(record_id, bedtime)
+```
 
 ### Export
 

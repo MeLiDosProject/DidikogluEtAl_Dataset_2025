@@ -1,0 +1,63 @@
+record_id,start,activity_desc_english,activity_desc,suggestion_activity_desc
+IZTECH_S001,2024-12-24T22:00:00Z,Waiting at the airport,Hava limanında beklemek,
+IZTECH_S001,2024-12-24T23:00:00Z,Waiting at the airport,Hava limanında beklemek,
+IZTECH_S001,2024-12-25T00:00:00Z,Waiting at the airport,Hava limanında beklemek,
+IZTECH_S001,2024-12-26T14:00:00Z,Exercising indoors/taking a shower,Kapalı alanda egzersiz/duş almak,
+IZTECH_S001,2024-12-26T15:00:00Z,Exercise in the open air,Açık alanda egzersiz,Exercise outdoors
+IZTECH_S001,2024-12-29T12:00:00Z,Doing sports outdoors,Açık alanda spor yapmak,
+IZTECH_S001,2024-12-30T08:00:00Z,Doctor examinations,Doktor muayneleri,Medical appointment
+IZTECH_S001,2024-12-30T09:00:00Z,Doctor examinations,Doktor muayneleri,Medical appointment
+IZTECH_S001,2024-12-30T10:00:00Z,Doctor examinations,Doktor muayneleri,Medical appointment
+IZTECH_S001,2024-12-30T11:00:00Z,Doctor's appointments,Doktor muayneleri,Medical appointment
+IZTECH_S001,2024-12-30T18:00:00Z,Exercise indoors,Kapalı alanda egzersiz,
+IZTECH_S001,2024-12-30T19:00:00Z,Exercise indoors,Kapalı alanda egzersiz,
+IZTECH_S002,2025-01-06T16:00:00Z,Eating at a restaurant,Lokantada yemek,
+IZTECH_S002,2025-01-06T17:00:00Z,Eating at a restaurant,Lokantada yemek,
+IZTECH_S002,2025-01-07T09:00:00Z,Eating food in the cafeteria,Yemekhanede yemek yemek,
+IZTECH_S002,2025-01-08T08:00:00Z,cafeteria,yemekhane,
+IZTECH_S002,2025-01-08T13:00:00Z,Sitting at a cafe,Kafede oturmak,
+IZTECH_S002,2025-01-09T15:00:00Z,Tea-coffee break (I sat in a dark but enclosed space),Çay-kahve molası (karanlık ama kapalı bir alanda oturdum),
+IZTECH_S002,2025-01-09T16:00:00Z,Tea-coffee break (I sat in a dark but enclosed space),Çay-kahve molası (karanlık ama kapalı bir alanda oturdum),
+IZTECH_S002,2025-01-09T17:00:00Z,Being in a shopping mall,AVM'de bulunmak,
+IZTECH_S002,2025-01-10T17:00:00Z,Shopping at the market,Marketten alışveriş yapmak,
+IZTECH_S003,2025-01-06T16:00:00Z,Restaurant,Restoran,
+IZTECH_S003,2025-01-06T17:00:00Z,Restaurant,Restoran,
+IZTECH_S003,2025-01-07T09:00:00Z,Having a meal at the cafeteria,Yemekhanede yemek yemek,
+IZTECH_S003,2025-01-08T09:00:00Z,Cafeteria,Yemekhane,
+IZTECH_S003,2025-01-08T13:00:00Z,Cafe,Kafe,
+IZTECH_S003,2025-01-09T16:00:00Z,Spending leisure time indoors,Kapalı alanda boş zaman geçirmek,
+IZTECH_S003,2025-01-09T17:00:00Z,Eating indoors (mall),Kapalı alanda yemek yemek (AVM),Eating food indoors (at a mall)
+IZTECH_S003,2025-01-09T18:00:00Z,Eating food indoors (at a mall),Kapalı alanda yemek yemek (AVM),
+IZTECH_S004,2025-01-26T11:00:00Z,Walking in an open area for 40 minutes,Acik alanda yuruyus 40 dk,Walking outdoors for 40 minutes
+IZTECH_S012,2025-04-23T06:00:00Z,Having breakfast at a restaurant,Restoranda kahvaltı etmek,
+IZTECH_S012,2025-04-23T07:00:00Z,Having breakfast at the restaurant,Restoranda kahvaltı etmek,Having breakfast at a restaurant
+IZTECH_S012,2025-04-23T11:00:00Z,Studying lessons at the cafe,Kafede ders çalışmak,Studying at a cafe
+IZTECH_S012,2025-04-23T12:00:00Z,Studying lessons at a cafe,Kafede ders çalışmak,Studying at a cafe
+IZTECH_S012,2025-04-23T13:00:00Z,Studying at a cafe,Kafede ders çalışmak,
+IZTECH_S012,2025-04-23T14:00:00Z,Studying at a cafe,Kafede ders çalışmak,
+IZTECH_S012,2025-04-23T15:00:00Z,Studying lesson at the cafe,Kafede ders çalışmak,Studying at a cafe
+IZTECH_S012,2025-04-23T16:00:00Z,Eating at a restaurant,Restoranda yemek,
+IZTECH_S012,2025-04-23T17:00:00Z,Eating at a restaurant,Restoranda yemek,
+IZTECH_S012,2025-04-25T13:00:00Z,Sitting at a cafe,Kafede oturmak,
+IZTECH_S012,2025-04-26T09:00:00Z,Breakfast hall,Kahvalti salonu,
+IZTECH_S013,2025-04-22T16:00:00Z,"Darkness, candlelight, chatting, phone (a little)",Karanlik+mum isigi+ sohbet+telefon (az),
+IZTECH_S013,2025-04-22T17:00:00Z,"Darkness, candlelight, chatting, phone (a little)",Karanlik+mum isigi+ sohbet+telefon (az),
+IZTECH_S013,2025-04-22T18:00:00Z,Darkness + candle light + chatting + phone (a little),Karanlik+mum isigi+ sohbet+telefon (az),"Darkness, candlelight, chatting, phone (a little)"
+IZTECH_S014,2025-05-02T11:00:00Z,Indoor field sports,Kapali alan spor,Indoor sports
+IZTECH_S014,2025-05-03T11:00:00Z,Indoor sports,Kapali alan spor,
+IZTECH_S016,2025-05-05T13:00:00Z,Sitting in a cafe,Kafede oturmak,
+IZTECH_S016,2025-05-05T14:00:00Z,Sitting in a cafe,Kafede oturmak,
+IZTECH_S016,2025-05-05T15:00:00Z,Sitting at the cafe,Kafede oturmak,Sitting in a cafe
+IZTECH_S016,2025-05-05T16:00:00Z,Sitting at a cafe,Kafede oturmak,Sitting in a cafe
+IZTECH_S016,2025-05-07T13:00:00Z,Indoor sports,Kapali alan spor,
+IZTECH_S016,2025-05-07T14:00:00Z,Indoor area sport,Kapali alan spor,Indoor sports
+IZTECH_S016,2025-05-08T13:00:00Z,Indoor sports,Kapali alan spor,
+IZTECH_S016,2025-05-08T14:00:00Z,Indoor sports,Kapali alan spor,
+IZTECH_S016,2025-05-09T13:00:00Z,Indoor sports,Kapali alan spor,
+IZTECH_S016,2025-05-09T14:00:00Z,Indoor sports,Kapali alan spor,
+IZTECH_S017,2025-05-28T09:00:00Z,Eating food in the dining hall,Yemekhanede yemek yemek,
+IZTECH_S017,2025-05-28T10:00:00Z,Sitting in class during a lesson,Sinifta derste oturmak,
+IZTECH_S017,2025-05-30T06:00:00Z,Being in class,Derste bulunmak,Attending a class
+IZTECH_S017,2025-05-30T07:00:00Z,Attending a class,Derste bulunmak,
+IZTECH_S017,2025-05-30T08:00:00Z,Being in class,Derste bulunmak,Attending a class
+IZTECH_S017,2025-05-30T09:00:00Z,Attending a class,Derste bulunmak,

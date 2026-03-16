@@ -178,6 +178,49 @@ data_llm <-
   read_csv("../data/AI_translations/lightexposurediary.csv") |> 
   select(activity_desc, activity_desc_english) |> 
   distinct(activity_desc, .keep_all = TRUE)
+```
+
+### Manual correction
+
+Each site checked the automated translations and provided suggestions in case they needed adjustment. The following code consolidates the two versions
+
+```{r}
+data_corrected <- 
+  read_csv("../data/AI_translations/lightexposurediary_corrected.csv", show_col_types = FALSE) |> 
+  distinct(activity_desc, .keep_all = TRUE)
+
+relevant_names <- 
+names(data_corrected) |> 
+  subset(grepl("suggestion", names(data_corrected))) |> 
+  str_remove_all("^suggestion_")
+
+data_corrected <- 
+data_corrected |>
+  mutate(
+    across(
+      all_of(paste0(relevant_names, "_english")),
+      \(x) {
+        sug <- paste0("suggestion_", cur_column()) |> str_remove("_english$")
+        coalesce(get(sug), x)
+      }
+    )
+  )
+
+data_llm <- 
+data_llm |>
+  mutate(
+    across(
+      all_of(paste0(relevant_names, "_english")),
+      \(x) {
+        data_corrected[[cur_column()]]
+      }
+    )
+  )
+
+```
+
+
+```{r}
 #add output to original
 data <- data |> left_join(data_llm, by = c("activity_desc"))
 data <-

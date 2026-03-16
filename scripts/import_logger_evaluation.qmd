@@ -144,15 +144,57 @@ Native language is translated into English with AI and later checked by a site r
 data_llm <- 
   read_csv("../data/AI_translations/evaluation.csv") |> 
   select(record_id, ends_with("english"))
+```
+
+### Manual correction
+
+Each site checked the automated translations and provided suggestions in case they needed adjustment. The following code consolidates the two versions
+
+```{r}
+data_corrected <- 
+  read_csv("../data/AI_translations/evaluation_corrected.csv", show_col_types = FALSE)
+
+relevant_names <- 
+names(data_corrected) |> 
+  subset(grepl("suggestion", names(data_corrected))) |> 
+  str_remove_all("^suggestion_")
+
+data_corrected <- 
+data_corrected |>
+  mutate(
+    across(
+      all_of(paste0(relevant_names, "_english")),
+      \(x) {
+        sug <- paste0("suggestion_", cur_column()) |> str_remove("_english$")
+        coalesce(get(sug), x)
+      }
+    )
+  )
+
+data_llm <- 
+data_llm |>
+  mutate(
+    across(
+      all_of(paste0(relevant_names, "_english")),
+      \(x) {
+        data_corrected[[cur_column()]]
+      }
+    )
+  )
+
+```
+
+```{r}
 #add output to original
 data <- data |> left_join(data_llm, by = c("record_id"))
+```
+
+```{r}
 data <-
   data |> 
   mutate(across(ends_with("english"), \(x) add_label(x, "English translation")
                 ))
 ```
-
-
 
 ### Export
 

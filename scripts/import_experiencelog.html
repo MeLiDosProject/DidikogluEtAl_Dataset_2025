@@ -2238,81 +2238,90 @@ vertical-align: -.125em;
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(LightLogR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;tidyr&#39; was built under R version 4.5.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;dplyr&#39; was built under R version 4.5.2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(LightLogR)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package &#39;LightLogR&#39; was built under R version 4.5.2</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>site <span class="ot">&lt;-</span> <span class="st">&quot;IZTECH&quot;</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>remote <span class="ot">&lt;-</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/&quot;</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;labeling&quot;</span>,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;radio_factors&quot;</span>,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;add_label&quot;</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;time_summaries&quot;</span>,</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;prepare_codebook&quot;</span>,</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;filefinder&quot;</span>,</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;general_parameters&quot;</span>,</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;coltype_checker&quot;</span>,</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;diarydate&quot;</span>,</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;wearlog_plausibility&quot;</span>,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;tables&quot;</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span> <span class="fu">walk</span>(\(x) <span class="fu">source</span>(<span class="fu">paste0</span>(remote, x, <span class="st">&quot;.R&quot;</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>site <span class="ot">&lt;-</span> <span class="st">&quot;IZTECH&quot;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>remote <span class="ot">&lt;-</span> </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/&quot;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;labeling&quot;</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;radio_factors&quot;</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;add_label&quot;</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;time_summaries&quot;</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;prepare_codebook&quot;</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;filefinder&quot;</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;general_parameters&quot;</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;coltype_checker&quot;</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;diarydate&quot;</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;wearlog_plausibility&quot;</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;tables&quot;</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span> <span class="fu">walk</span>(\(x) <span class="fu">source</span>(<span class="fu">paste0</span>(remote, x, <span class="st">&quot;.R&quot;</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package &#39;rlang&#39; was built under R version 4.5.2</code></pre>
+</div>
 </div>
 </section>
 <section id="preparation" class="level2">
 <h2 class="anchored" data-anchor-id="preparation">Preparation</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#collect codebook</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> <span class="fu">prepare_codebook</span>(<span class="st">&quot;MeLiDosExperienceLog_DataDictionary_2024-10-16.csv&quot;</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#collect files</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">filefinder</span>(<span class="st">&quot;experiencelog&quot;</span>, <span class="at">continuous =</span> <span class="cn">TRUE</span>, <span class="at">individual =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#import files</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(files, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(redcap_repeat_instance)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#combine itentity and social columns</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.before =</span> identity___1,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">identity =</span> <span class="fu">case_when</span>(identity___1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                         identity___2 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                         identity___3 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                         identity___4 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                         identity___5 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="fu">as.character</span>(),</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">social_type =</span> <span class="fu">case_when</span>(social_type___1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                         social_type___2 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                         social_type___3 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                         social_type___4 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> <span class="fu">as.character</span>()</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="fu">contains</span>(<span class="st">&quot;identity__&quot;</span>), <span class="fu">contains</span>(<span class="st">&quot;social_type__&quot;</span>))) <span class="sc">|&gt;</span> </span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">feedback =</span> <span class="fu">as.logical</span>(feedback),</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">removal =</span> <span class="fu">as.logical</span>(removal))</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#check column types</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>coltype_check <span class="ot">&lt;-</span> <span class="fu">coltype_checker</span>(codebook, data)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>coltype_check<span class="sc">$</span>details <span class="sc">|&gt;</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#collect codebook</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> <span class="fu">prepare_codebook</span>(<span class="st">&quot;MeLiDosExperienceLog_DataDictionary_2024-10-16.csv&quot;</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#collect files</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">filefinder</span>(<span class="st">&quot;experiencelog&quot;</span>, <span class="at">continuous =</span> <span class="cn">TRUE</span>, <span class="at">individual =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#import files</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(files, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(redcap_repeat_instance)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#combine itentity and social columns</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.before =</span> identity___1,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">identity =</span> <span class="fu">case_when</span>(identity___1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                         identity___2 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                         identity___3 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                         identity___4 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                         identity___5 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="fu">as.character</span>(),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">social_type =</span> <span class="fu">case_when</span>(social_type___1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                         social_type___2 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                         social_type___3 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                         social_type___4 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> <span class="fu">as.character</span>()</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="fu">contains</span>(<span class="st">&quot;identity__&quot;</span>), <span class="fu">contains</span>(<span class="st">&quot;social_type__&quot;</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">feedback =</span> <span class="fu">as.logical</span>(feedback),</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">removal =</span> <span class="fu">as.logical</span>(removal))</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#check column types</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>coltype_check <span class="ot">&lt;-</span> <span class="fu">coltype_checker</span>(codebook, data)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>coltype_check<span class="sc">$</span>details <span class="sc">|&gt;</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="lhlpjiniwm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lhlpjiniwm table {
+<div id="oyiokbhvbi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#oyiokbhvbi table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#lhlpjiniwm thead, #lhlpjiniwm tbody, #lhlpjiniwm tfoot, #lhlpjiniwm tr, #lhlpjiniwm td, #lhlpjiniwm th {
+#oyiokbhvbi thead, #oyiokbhvbi tbody, #oyiokbhvbi tfoot, #oyiokbhvbi tr, #oyiokbhvbi td, #oyiokbhvbi th {
 border-style: none;
 }
-#lhlpjiniwm p {
+#oyiokbhvbi p {
 margin: 0;
 padding: 0;
 }
-#lhlpjiniwm .gt_table {
+#oyiokbhvbi .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -2337,11 +2346,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_caption {
+#oyiokbhvbi .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#lhlpjiniwm .gt_title {
+#oyiokbhvbi .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -2352,7 +2361,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#lhlpjiniwm .gt_subtitle {
+#oyiokbhvbi .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -2363,7 +2372,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#lhlpjiniwm .gt_heading {
+#oyiokbhvbi .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -2374,12 +2383,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_bottom_border {
+#oyiokbhvbi .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_col_headings {
+#oyiokbhvbi .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2393,7 +2402,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_col_heading {
+#oyiokbhvbi .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2412,7 +2421,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#lhlpjiniwm .gt_column_spanner_outer {
+#oyiokbhvbi .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2423,13 +2432,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#lhlpjiniwm .gt_column_spanner_outer:first-child {
+#oyiokbhvbi .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#lhlpjiniwm .gt_column_spanner_outer:last-child {
+#oyiokbhvbi .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#lhlpjiniwm .gt_column_spanner {
+#oyiokbhvbi .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -2440,10 +2449,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#lhlpjiniwm .gt_spanner_row {
+#oyiokbhvbi .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#lhlpjiniwm .gt_group_heading {
+#oyiokbhvbi .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2468,7 +2477,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#lhlpjiniwm .gt_empty_group_heading {
+#oyiokbhvbi .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -2482,13 +2491,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#lhlpjiniwm .gt_from_md > :first-child {
+#oyiokbhvbi .gt_from_md > :first-child {
 margin-top: 0;
 }
-#lhlpjiniwm .gt_from_md > :last-child {
+#oyiokbhvbi .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#lhlpjiniwm .gt_row {
+#oyiokbhvbi .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2506,7 +2515,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#lhlpjiniwm .gt_stub {
+#oyiokbhvbi .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2518,7 +2527,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#lhlpjiniwm .gt_stub_row_group {
+#oyiokbhvbi .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2531,13 +2540,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#lhlpjiniwm .gt_row_group_first td {
+#oyiokbhvbi .gt_row_group_first td {
 border-top-width: 2px;
 }
-#lhlpjiniwm .gt_row_group_first th {
+#oyiokbhvbi .gt_row_group_first th {
 border-top-width: 2px;
 }
-#lhlpjiniwm .gt_summary_row {
+#oyiokbhvbi .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -2546,14 +2555,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#lhlpjiniwm .gt_first_summary_row {
+#oyiokbhvbi .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_first_summary_row.thick {
+#oyiokbhvbi .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#lhlpjiniwm .gt_last_summary_row {
+#oyiokbhvbi .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2562,7 +2571,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_grand_summary_row {
+#oyiokbhvbi .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -2571,7 +2580,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#lhlpjiniwm .gt_first_grand_summary_row {
+#oyiokbhvbi .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2580,7 +2589,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_last_grand_summary_row_top {
+#oyiokbhvbi .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2589,10 +2598,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_striped {
+#oyiokbhvbi .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#lhlpjiniwm .gt_table_body {
+#oyiokbhvbi .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2600,7 +2609,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_footnotes {
+#oyiokbhvbi .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -2613,7 +2622,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_footnote {
+#oyiokbhvbi .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -2621,7 +2630,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#lhlpjiniwm .gt_sourcenotes {
+#oyiokbhvbi .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -2634,64 +2643,64 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#lhlpjiniwm .gt_sourcenote {
+#oyiokbhvbi .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#lhlpjiniwm .gt_left {
+#oyiokbhvbi .gt_left {
 text-align: left;
 }
-#lhlpjiniwm .gt_center {
+#oyiokbhvbi .gt_center {
 text-align: center;
 }
-#lhlpjiniwm .gt_right {
+#oyiokbhvbi .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#lhlpjiniwm .gt_font_normal {
+#oyiokbhvbi .gt_font_normal {
 font-weight: normal;
 }
-#lhlpjiniwm .gt_font_bold {
+#oyiokbhvbi .gt_font_bold {
 font-weight: bold;
 }
-#lhlpjiniwm .gt_font_italic {
+#oyiokbhvbi .gt_font_italic {
 font-style: italic;
 }
-#lhlpjiniwm .gt_super {
+#oyiokbhvbi .gt_super {
 font-size: 65%;
 }
-#lhlpjiniwm .gt_footnote_marks {
+#oyiokbhvbi .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#lhlpjiniwm .gt_asterisk {
+#oyiokbhvbi .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#lhlpjiniwm .gt_indent_1 {
+#oyiokbhvbi .gt_indent_1 {
 text-indent: 5px;
 }
-#lhlpjiniwm .gt_indent_2 {
+#oyiokbhvbi .gt_indent_2 {
 text-indent: 10px;
 }
-#lhlpjiniwm .gt_indent_3 {
+#oyiokbhvbi .gt_indent_3 {
 text-indent: 15px;
 }
-#lhlpjiniwm .gt_indent_4 {
+#oyiokbhvbi .gt_indent_4 {
 text-indent: 20px;
 }
-#lhlpjiniwm .gt_indent_5 {
+#oyiokbhvbi .gt_indent_5 {
 text-indent: 25px;
 }
-#lhlpjiniwm .katex-display {
+#oyiokbhvbi .katex-display {
 display: inline-flex !important;
 margin-bottom: 0.75em !important;
 }
-#lhlpjiniwm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#oyiokbhvbi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
 height: 0px !important;
 }
 </style>
@@ -2912,99 +2921,99 @@ height: 0px !important;
 
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#collect relevant columns: POSIXct, Date &amp; numeric</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>relevant_columns <span class="ot">&lt;-</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  coltype_check<span class="sc">$</span>details <span class="sc">|&gt;</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(col)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#add specific character columns</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>relevant_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;record_id&quot;</span>, relevant_columns)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#select relevant columns</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">any_of</span>(relevant_columns))</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#label variables</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_radio_factors</span>(codebook, </span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">var_col =</span> <span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>, </span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">type_col =</span> <span class="st">`</span><span class="at">Field Type</span><span class="st">`</span>,</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">levels_col =</span> <span class="st">`</span><span class="at">Choices, Calculations, OR Slider Labels</span><span class="st">`</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                    ) <span class="sc">|&gt;</span> </span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_col_labels</span>(codebook, <span class="at">var_col =</span> <span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>, <span class="at">label_col =</span> <span class="st">`</span><span class="at">Field Label</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(record_id, <span class="fu">any_of</span>(codebook<span class="sc">$</span><span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>))<span class="sc">|&gt;</span> </span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(uuid_2<span class="sc">:</span>serializedresult_2, startdate_2<span class="sc">:</span>scheduledate_2))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#collect relevant columns: POSIXct, Date &amp; numeric</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>relevant_columns <span class="ot">&lt;-</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  coltype_check<span class="sc">$</span>details <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(col)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#add specific character columns</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>relevant_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;record_id&quot;</span>, relevant_columns)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#select relevant columns</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">any_of</span>(relevant_columns))</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#label variables</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_radio_factors</span>(codebook, </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">var_col =</span> <span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>, </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">type_col =</span> <span class="st">`</span><span class="at">Field Type</span><span class="st">`</span>,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">levels_col =</span> <span class="st">`</span><span class="at">Choices, Calculations, OR Slider Labels</span><span class="st">`</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                    ) <span class="sc">|&gt;</span> </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_col_labels</span>(codebook, <span class="at">var_col =</span> <span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>, <span class="at">label_col =</span> <span class="st">`</span><span class="at">Field Label</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(record_id, <span class="fu">any_of</span>(codebook<span class="sc">$</span><span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>))<span class="sc">|&gt;</span> </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(uuid_2<span class="sc">:</span>serializedresult_2, startdate_2<span class="sc">:</span>scheduledate_2))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in add_col_labels(add_radio_factors(data, codebook, var_col = `Variable
 / Field Name`, : Labels provided for variables not in `data`: explog_instr</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(past, current),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;is_past&quot;</span>),</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;Datetime&quot;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>               ) <span class="sc">|&gt;</span> </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Datetime) <span class="sc">|&gt;</span> </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="at">.after =</span> record_id,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>           Datetime, is_past) <span class="sc">|&gt;</span> </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.POSIXct), \(x) <span class="fu">force_tz</span>(x, tzs[[site]])))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(past, current),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;is_past&quot;</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;Datetime&quot;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>               ) <span class="sc">|&gt;</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Datetime) <span class="sc">|&gt;</span> </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="at">.after =</span> record_id,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>           Datetime, is_past) <span class="sc">|&gt;</span> </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.POSIXct), \(x) <span class="fu">force_tz</span>(x, tzs[[site]])))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">arrange</span>(record_id, Datetime)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">arrange</span>(record_id, Datetime)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="translate-comments-into-english" class="level2">
 <h2 class="anchored" data-anchor-id="translate-comments-into-english">Translate comments into english</h2>
 <p>Native language is translated into English with AI and later checked by a site researcher.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ellmer)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># #Providing the relevant codebook portions</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># chat &lt;- chat_openai(paste0(&quot;Clean the dataset according to the instructions in the output structure.&quot;))</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># #Providing the input</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># data_red &lt;-</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># data|&gt;</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(record_id, loc_spec, descr, identity_spec, future_use)</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># data_red &lt;-</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_red |&gt;</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   pmap(~ paste(paste(names(data_red), c(...), sep = &quot;: &quot;), collapse = &quot;, &quot;))</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># #creating an output structure</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># type_data &lt;- type_object(</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   record_id = type_string(&quot;use the record_id information&quot;),</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   loc_spec_english = type_string(&quot;Translate (or if in english already, copy) the &#39;loc_spec&#39; column here. Question: Please specify the location which describes the location where you made the experience?&quot;, required = FALSE),</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   descr_english = type_string(&quot;Translate (or if in english already, copy) the &#39;descr&#39; column here. Question: Please provide a brief description of your experience, including the location, the activity you were performing and what feelings it triggered for you.&quot;, required = FALSE),</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   identity_spec_english = type_string(&quot;Translate (or if in english already, copy) the &#39;identity_spec&#39; column here. Question: Who provided this feedback?&quot;, required = FALSE),</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   future_use_english = type_string(&quot;Translate (or if in english already, copy) the &#39;future_use&#39; column here. Question: Explain how this experience will influence your future use of the light glasses, if at all.&quot;, required = FALSE)</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co"># parallel_chat_structured(</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   chat,</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_red,</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co">#   type = type_data</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co"># #Ensure that no NA is caught as string</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_llm |&gt;</span></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(across(everything(), \(x) case_when(x == &quot;NA&quot; ~ NA, .default = x)))</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="co"># #check that input and output are identical</span></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co"># stopifnot(&quot;Input must by identical to output check&quot; =</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="co">#             all(data_llm$record_id == data$record_id, na.rm = TRUE))</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co">#   data |&gt; </span></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(record_id, Datetime, loc_spec, descr, identity_spec, future_use) |&gt; </span></span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="co">#   bind_cols(data_llm |&gt; select(-record_id))</span></span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="co"># path &lt;- &quot;../data/AI_translations/&quot;</span></span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="co"># if(!dir.exists(path)) dir.create(path, recursive = TRUE)</span></span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="co"># write_csv(data_llm, &quot;../data/AI_translations/experiencelog.csv&quot;)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ellmer)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># #Providing the relevant codebook portions</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># chat &lt;- chat_openai(paste0(&quot;Clean the dataset according to the instructions in the output structure.&quot;))</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># #Providing the input</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># data_red &lt;-</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># data|&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(record_id, loc_spec, descr, identity_spec, future_use)</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># data_red &lt;-</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_red |&gt;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   pmap(~ paste(paste(names(data_red), c(...), sep = &quot;: &quot;), collapse = &quot;, &quot;))</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># #creating an output structure</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># type_data &lt;- type_object(</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   record_id = type_string(&quot;use the record_id information&quot;),</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   loc_spec_english = type_string(&quot;Translate (or if in english already, copy) the &#39;loc_spec&#39; column here. Question: Please specify the location which describes the location where you made the experience?&quot;, required = FALSE),</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   descr_english = type_string(&quot;Translate (or if in english already, copy) the &#39;descr&#39; column here. Question: Please provide a brief description of your experience, including the location, the activity you were performing and what feelings it triggered for you.&quot;, required = FALSE),</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   identity_spec_english = type_string(&quot;Translate (or if in english already, copy) the &#39;identity_spec&#39; column here. Question: Who provided this feedback?&quot;, required = FALSE),</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   future_use_english = type_string(&quot;Translate (or if in english already, copy) the &#39;future_use&#39; column here. Question: Explain how this experience will influence your future use of the light glasses, if at all.&quot;, required = FALSE)</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="co"># parallel_chat_structured(</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   chat,</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_red,</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="co">#   type = type_data</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="co"># #Ensure that no NA is caught as string</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_llm |&gt;</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(across(everything(), \(x) case_when(x == &quot;NA&quot; ~ NA, .default = x)))</span></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="co"># #check that input and output are identical</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="co"># stopifnot(&quot;Input must by identical to output check&quot; =</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co">#             all(data_llm$record_id == data$record_id, na.rm = TRUE))</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="co">#   data |&gt; </span></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(record_id, Datetime, loc_spec, descr, identity_spec, future_use) |&gt; </span></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="co">#   bind_cols(data_llm |&gt; select(-record_id))</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="co"># path &lt;- &quot;../data/AI_translations/&quot;</span></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="co"># if(!dir.exists(path)) dir.create(path, recursive = TRUE)</span></span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a><span class="co"># write_csv(data_llm, &quot;../data/AI_translations/experiencelog.csv&quot;)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data_llm <span class="ot">&lt;-</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">&quot;../data/AI_translations/experiencelog.csv&quot;</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(loc_spec, descr, identity_spec, future_use))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data_llm <span class="ot">&lt;-</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">&quot;../data/AI_translations/experiencelog.csv&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(loc_spec, descr, identity_spec, future_use))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 69 Columns: 10
 ── Column specification ────────────────────────────────────────────────────────
@@ -3015,39 +3024,659 @@ dttm (1): Datetime
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#add output to original</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">left_join</span>(data_llm, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;record_id&quot;</span>, <span class="st">&quot;Datetime&quot;</span>))</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">ends_with</span>(<span class="st">&quot;english&quot;</span>), \(x) <span class="fu">add_label</span>(x, <span class="st">&quot;English translation&quot;</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<section id="manual-correction" class="level3">
+<h3 class="anchored" data-anchor-id="manual-correction">Manual correction</h3>
+<p>Each site checked the automated translations and provided suggestions in case they needed adjustment. The following code consolidates the two versions</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>data_corrected <span class="ot">&lt;-</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">&quot;../data/AI_translations/experiencelog_corrected.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>relevant_names <span class="ot">&lt;-</span> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data_corrected) <span class="sc">|&gt;</span> </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="fu">grepl</span>(<span class="st">&quot;suggestion&quot;</span>, <span class="fu">names</span>(data_corrected))) <span class="sc">|&gt;</span> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_remove_all</span>(<span class="st">&quot;^suggestion_&quot;</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>data_corrected <span class="ot">&lt;-</span> </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>data_corrected <span class="sc">|&gt;</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">all_of</span>(<span class="fu">paste0</span>(relevant_names, <span class="st">&quot;_english&quot;</span>)),</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>      \(x) {</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        sug <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;suggestion_&quot;</span>, <span class="fu">cur_column</span>()) <span class="sc">|&gt;</span> <span class="fu">str_remove</span>(<span class="st">&quot;_english$&quot;</span>)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">coalesce</span>(<span class="fu">get</span>(sug), x)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>data_llm <span class="ot">&lt;-</span> </span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>data_llm <span class="sc">|&gt;</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">all_of</span>(<span class="fu">paste0</span>(relevant_names, <span class="st">&quot;_english&quot;</span>)),</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>      \(x) {</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>        data_corrected[[<span class="fu">cur_column</span>()]]</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#add output to original</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">left_join</span>(data_llm, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;record_id&quot;</span>, <span class="st">&quot;Datetime&quot;</span>))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">ends_with</span>(<span class="st">&quot;english&quot;</span>), \(x) <span class="fu">add_label</span>(x, <span class="st">&quot;English translation&quot;</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
 </section>
 <section id="summarize-results" class="level2">
 <h2 class="anchored" data-anchor-id="summarize-results">Summarize results</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table_general</span>(</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span><span class="fu">c</span>(Datetime, is_past, loc_spec, descr, </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>         identity_spec, future_use, <span class="fu">ends_with</span>(<span class="st">&quot;english&quot;</span>))</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>      ), </span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">header =</span> <span class="st">&quot;Experience log&quot;</span>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table <span class="sc">|&gt;</span> <span class="fu">as_gt</span>(), <span class="at">filename =</span> <span class="st">&quot;../output/tables/table_experiencelog.png&quot;</span>, <span class="at">vwidth =</span> <span class="dv">800</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table_general</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span><span class="fu">c</span>(Datetime, is_past, loc_spec, descr, </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>         identity_spec, future_use, <span class="fu">ends_with</span>(<span class="st">&quot;english&quot;</span>))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>      ), </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">header =</span> <span class="st">&quot;Experience log&quot;</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="yvyqmujuua" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yvyqmujuua table {
+font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+#yvyqmujuua thead, #yvyqmujuua tbody, #yvyqmujuua tfoot, #yvyqmujuua tr, #yvyqmujuua td, #yvyqmujuua th {
+border-style: none;
+}
+#yvyqmujuua p {
+margin: 0;
+padding: 0;
+}
+#yvyqmujuua .gt_table {
+display: table;
+border-collapse: collapse;
+line-height: normal;
+margin-left: auto;
+margin-right: auto;
+color: #333333;
+font-size: 16px;
+font-weight: normal;
+font-style: normal;
+background-color: #FFFFFF;
+width: auto;
+border-top-style: solid;
+border-top-width: 2px;
+border-top-color: #A8A8A8;
+border-right-style: none;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #A8A8A8;
+border-left-style: none;
+border-left-width: 2px;
+border-left-color: #D3D3D3;
+}
+#yvyqmujuua .gt_caption {
+padding-top: 4px;
+padding-bottom: 4px;
+}
+#yvyqmujuua .gt_title {
+color: #333333;
+font-size: 125%;
+font-weight: initial;
+padding-top: 4px;
+padding-bottom: 4px;
+padding-left: 5px;
+padding-right: 5px;
+border-bottom-color: #FFFFFF;
+border-bottom-width: 0;
+}
+#yvyqmujuua .gt_subtitle {
+color: #333333;
+font-size: 85%;
+font-weight: initial;
+padding-top: 3px;
+padding-bottom: 5px;
+padding-left: 5px;
+padding-right: 5px;
+border-top-color: #FFFFFF;
+border-top-width: 0;
+}
+#yvyqmujuua .gt_heading {
+background-color: #FFFFFF;
+text-align: center;
+border-bottom-color: #FFFFFF;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+}
+#yvyqmujuua .gt_bottom_border {
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+}
+#yvyqmujuua .gt_col_headings {
+border-top-style: solid;
+border-top-width: 2px;
+border-top-color: #D3D3D3;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+}
+#yvyqmujuua .gt_col_heading {
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: normal;
+text-transform: inherit;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+vertical-align: bottom;
+padding-top: 5px;
+padding-bottom: 6px;
+padding-left: 5px;
+padding-right: 5px;
+overflow-x: hidden;
+}
+#yvyqmujuua .gt_column_spanner_outer {
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: normal;
+text-transform: inherit;
+padding-top: 0;
+padding-bottom: 0;
+padding-left: 4px;
+padding-right: 4px;
+}
+#yvyqmujuua .gt_column_spanner_outer:first-child {
+padding-left: 0;
+}
+#yvyqmujuua .gt_column_spanner_outer:last-child {
+padding-right: 0;
+}
+#yvyqmujuua .gt_column_spanner {
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+vertical-align: bottom;
+padding-top: 5px;
+padding-bottom: 5px;
+overflow-x: hidden;
+display: inline-block;
+width: 100%;
+}
+#yvyqmujuua .gt_spanner_row {
+border-bottom-style: hidden;
+}
+#yvyqmujuua .gt_group_heading {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: initial;
+text-transform: inherit;
+border-top-style: solid;
+border-top-width: 2px;
+border-top-color: #D3D3D3;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+vertical-align: middle;
+text-align: left;
+}
+#yvyqmujuua .gt_empty_group_heading {
+padding: 0.5px;
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: initial;
+border-top-style: solid;
+border-top-width: 2px;
+border-top-color: #D3D3D3;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+vertical-align: middle;
+}
+#yvyqmujuua .gt_from_md > :first-child {
+margin-top: 0;
+}
+#yvyqmujuua .gt_from_md > :last-child {
+margin-bottom: 0;
+}
+#yvyqmujuua .gt_row {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+margin: 10px;
+border-top-style: solid;
+border-top-width: 1px;
+border-top-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+vertical-align: middle;
+overflow-x: hidden;
+}
+#yvyqmujuua .gt_stub {
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: initial;
+text-transform: inherit;
+border-right-style: solid;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+padding-left: 5px;
+padding-right: 5px;
+}
+#yvyqmujuua .gt_stub_row_group {
+color: #333333;
+background-color: #FFFFFF;
+font-size: 100%;
+font-weight: initial;
+text-transform: inherit;
+border-right-style: solid;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+padding-left: 5px;
+padding-right: 5px;
+vertical-align: top;
+}
+#yvyqmujuua .gt_row_group_first td {
+border-top-width: 2px;
+}
+#yvyqmujuua .gt_row_group_first th {
+border-top-width: 2px;
+}
+#yvyqmujuua .gt_summary_row {
+color: #333333;
+background-color: #FFFFFF;
+text-transform: inherit;
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+}
+#yvyqmujuua .gt_first_summary_row {
+border-top-style: solid;
+border-top-color: #D3D3D3;
+}
+#yvyqmujuua .gt_first_summary_row.thick {
+border-top-width: 2px;
+}
+#yvyqmujuua .gt_last_summary_row {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+}
+#yvyqmujuua .gt_grand_summary_row {
+color: #333333;
+background-color: #FFFFFF;
+text-transform: inherit;
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+}
+#yvyqmujuua .gt_first_grand_summary_row {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+border-top-style: double;
+border-top-width: 6px;
+border-top-color: #D3D3D3;
+}
+#yvyqmujuua .gt_last_grand_summary_row_top {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+border-bottom-style: double;
+border-bottom-width: 6px;
+border-bottom-color: #D3D3D3;
+}
+#yvyqmujuua .gt_striped {
+background-color: rgba(128, 128, 128, 0.05);
+}
+#yvyqmujuua .gt_table_body {
+border-top-style: solid;
+border-top-width: 2px;
+border-top-color: #D3D3D3;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+}
+#yvyqmujuua .gt_footnotes {
+color: #333333;
+background-color: #FFFFFF;
+border-bottom-style: none;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 2px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+}
+#yvyqmujuua .gt_footnote {
+margin: 0px;
+font-size: 90%;
+padding-top: 4px;
+padding-bottom: 4px;
+padding-left: 5px;
+padding-right: 5px;
+}
+#yvyqmujuua .gt_sourcenotes {
+color: #333333;
+background-color: #FFFFFF;
+border-bottom-style: none;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 2px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+}
+#yvyqmujuua .gt_sourcenote {
+font-size: 90%;
+padding-top: 4px;
+padding-bottom: 4px;
+padding-left: 5px;
+padding-right: 5px;
+}
+#yvyqmujuua .gt_left {
+text-align: left;
+}
+#yvyqmujuua .gt_center {
+text-align: center;
+}
+#yvyqmujuua .gt_right {
+text-align: right;
+font-variant-numeric: tabular-nums;
+}
+#yvyqmujuua .gt_font_normal {
+font-weight: normal;
+}
+#yvyqmujuua .gt_font_bold {
+font-weight: bold;
+}
+#yvyqmujuua .gt_font_italic {
+font-style: italic;
+}
+#yvyqmujuua .gt_super {
+font-size: 65%;
+}
+#yvyqmujuua .gt_footnote_marks {
+font-size: 75%;
+vertical-align: 0.4em;
+position: initial;
+}
+#yvyqmujuua .gt_asterisk {
+font-size: 100%;
+vertical-align: 0;
+}
+#yvyqmujuua .gt_indent_1 {
+text-indent: 5px;
+}
+#yvyqmujuua .gt_indent_2 {
+text-indent: 10px;
+}
+#yvyqmujuua .gt_indent_3 {
+text-indent: 15px;
+}
+#yvyqmujuua .gt_indent_4 {
+text-indent: 20px;
+}
+#yvyqmujuua .gt_indent_5 {
+text-indent: 25px;
+}
+#yvyqmujuua .katex-display {
+display: inline-flex !important;
+margin-bottom: 0.75em !important;
+}
+#yvyqmujuua div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Experience log</strong></th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N</strong></th>
+<th id="stat_0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N = 69</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">The experience you would like to report is</td>
+<td class="gt_row gt_center" headers="n">69</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">    Current (happened in the last 10 minutes)</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">35 (51%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">    Past (happened in the past and I forgot to report it)</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">34 (49%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">The experience I would like to report is</td>
+<td class="gt_row gt_center" headers="n">69</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">    Positive</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">8 (12%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">    Neutral</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">30 (43%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">    Negative</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">31 (45%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Please select the option which describes the location where you made the experience</td>
+<td class="gt_row gt_center" headers="n">69</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">    Home</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">9 (13%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">    Office or work-related space (e.g.: canteen)</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">35 (51%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">    Public spaces (e.g.: supermarket, restaurant, shop, park etc.)</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">20 (29%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">    Other</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">5 (7.2%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Did this experience involve verbal or non-verbal feedback from others? Example: comments or questions from people</td>
+<td class="gt_row gt_center" headers="n">69</td>
+<td class="gt_row gt_center" headers="stat_0">38 (55%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Who provided this feedback?</td>
+<td class="gt_row gt_center" headers="n">38</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">    Friend or family member</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">5 (13%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">    Colleague</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">9 (24%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">    Acquaintance</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">3 (7.9%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">    Stranger</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">17 (45%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">    Other</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">4 (11%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">    missing</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">31</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Please select the options that best describes the type feedback you received about the light glasses</td>
+<td class="gt_row gt_center" headers="n">38</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">    Comments about the light glasses</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">20 (53%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">    Questions about the light glasses</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">14 (37%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">    Looks due to the light glasses</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">3 (7.9%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">    Concerns about the light glasses</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">1 (2.6%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">    missing</td>
+<td class="gt_row gt_center" headers="n"><br>
+</td>
+<td class="gt_row gt_center" headers="stat_0">31</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Did this experience prompt you to remove the light glasses?</td>
+<td class="gt_row gt_center" headers="n">69</td>
+<td class="gt_row gt_center" headers="stat_0">4 (5.8%)</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="3" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> n (%)</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table <span class="sc">|&gt;</span> <span class="fu">as_gt</span>(), <span class="at">filename =</span> <span class="st">&quot;../output/tables/table_experiencelog.png&quot;</span>, <span class="at">vwidth =</span> <span class="dv">800</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>file:////var/folders/9p/326_k3kx43qbn_cyl1rqfhb00000gn/T//Rtmpa79Ceo/file871d6c581176.html screenshot completed</code></pre>
+<pre><code>file:////var/folders/9p/326_k3kx43qbn_cyl1rqfhb00000gn/T//RtmpJfXfwK/file17b6eed55be.html screenshot completed</code></pre>
 </div>
 </div>
 <section id="export" class="level3">
 <h3 class="anchored" data-anchor-id="export">Export</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">Id =</span> record_id)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>experiencelog <span class="ot">&lt;-</span> data</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">&quot;../data/imported/continuous/&quot;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">dir.exists</span>(path)) <span class="fu">dir.create</span>(path, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(experiencelog, <span class="at">file =</span> <span class="st">&quot;../data/imported/continuous/experiencelog.RData&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">Id =</span> record_id)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>experiencelog <span class="ot">&lt;-</span> data</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">&quot;../data/imported/continuous/&quot;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">dir.exists</span>(path)) <span class="fu">dir.create</span>(path, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(experiencelog, <span class="at">file =</span> <span class="st">&quot;../data/imported/continuous/experiencelog.RData&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <!-- -->
 
@@ -3507,209 +4136,250 @@ dttm (1): Datetime
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Import experience log&quot;</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Johannes Zauner&quot;</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">    self-contained: true</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preface</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>This document imports the <span class="in">`experience log`</span> and shows descriptive statistics for the site.</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setup</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(LightLogR)</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>site <span class="ot">&lt;-</span> <span class="st">&quot;IZTECH&quot;</span></span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>remote <span class="ot">&lt;-</span> </span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/&quot;</span></span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;labeling&quot;</span>,</span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;radio_factors&quot;</span>,</span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;add_label&quot;</span>,</span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;time_summaries&quot;</span>,</span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;prepare_codebook&quot;</span>,</span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;filefinder&quot;</span>,</span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;general_parameters&quot;</span>,</span>
-<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;coltype_checker&quot;</span>,</span>
-<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;diarydate&quot;</span>,</span>
-<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;wearlog_plausibility&quot;</span>,</span>
-<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;tables&quot;</span></span>
-<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span> <span class="fu">walk</span>(\(x) <span class="fu">source</span>(<span class="fu">paste0</span>(remote, x, <span class="st">&quot;.R&quot;</span>)))</span>
-<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preparation</span></span>
-<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="co">#collect codebook</span></span>
-<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> <span class="fu">prepare_codebook</span>(<span class="st">&quot;MeLiDosExperienceLog_DataDictionary_2024-10-16.csv&quot;</span>)</span>
-<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="co">#collect files</span></span>
-<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">filefinder</span>(<span class="st">&quot;experiencelog&quot;</span>, <span class="at">continuous =</span> <span class="cn">TRUE</span>, <span class="at">individual =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="co">#import files</span></span>
-<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(files, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(redcap_repeat_instance)</span>
-<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a><span class="co">#combine itentity and social columns</span></span>
-<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> </span>
-<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">.before =</span> identity___1,</span>
-<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">identity =</span> <span class="fu">case_when</span>(identity___1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>                         identity___2 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
-<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>                         identity___3 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a>                         identity___4 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
-<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>                         identity___5 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="fu">as.character</span>(),</span>
-<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">social_type =</span> <span class="fu">case_when</span>(social_type___1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>                         social_type___2 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
-<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a>                         social_type___3 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a>                         social_type___4 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> <span class="fu">as.character</span>()</span>
-<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="fu">contains</span>(<span class="st">&quot;identity__&quot;</span>), <span class="fu">contains</span>(<span class="st">&quot;social_type__&quot;</span>))) <span class="sc">|&gt;</span> </span>
-<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">feedback =</span> <span class="fu">as.logical</span>(feedback),</span>
-<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>         <span class="at">removal =</span> <span class="fu">as.logical</span>(removal))</span>
-<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a><span class="co">#check column types</span></span>
-<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>coltype_check <span class="ot">&lt;-</span> <span class="fu">coltype_checker</span>(codebook, data)</span>
-<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>coltype_check<span class="sc">$</span>details <span class="sc">|&gt;</span> <span class="fu">gt</span>()</span>
-<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a><span class="co">#collect relevant columns: POSIXct, Date &amp; numeric</span></span>
-<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a>relevant_columns <span class="ot">&lt;-</span> </span>
-<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a>  coltype_check<span class="sc">$</span>details <span class="sc">|&gt;</span> </span>
-<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(col)</span>
-<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a><span class="co">#add specific character columns</span></span>
-<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a>relevant_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;record_id&quot;</span>, relevant_columns)</span>
-<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a><span class="co">#select relevant columns</span></span>
-<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">any_of</span>(relevant_columns))</span>
-<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a><span class="co">#label variables</span></span>
-<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
-<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_radio_factors</span>(codebook, </span>
-<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a>                    <span class="at">var_col =</span> <span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>, </span>
-<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a>                    <span class="at">type_col =</span> <span class="st">`</span><span class="at">Field Type</span><span class="st">`</span>,</span>
-<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a>                    <span class="at">levels_col =</span> <span class="st">`</span><span class="at">Choices, Calculations, OR Slider Labels</span><span class="st">`</span></span>
-<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a>                    ) <span class="sc">|&gt;</span> </span>
-<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_col_labels</span>(codebook, <span class="at">var_col =</span> <span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>, <span class="at">label_col =</span> <span class="st">`</span><span class="at">Field Label</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(record_id, <span class="fu">any_of</span>(codebook<span class="sc">$</span><span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>))<span class="sc">|&gt;</span> </span>
-<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(uuid_2<span class="sc">:</span>serializedresult_2, startdate_2<span class="sc">:</span>scheduledate_2))</span>
-<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
-<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(past, current),</span>
-<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;is_past&quot;</span>),</span>
-<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;Datetime&quot;</span></span>
-<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a>               ) <span class="sc">|&gt;</span> </span>
-<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Datetime) <span class="sc">|&gt;</span> </span>
-<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="at">.after =</span> record_id,</span>
-<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a>           Datetime, is_past) <span class="sc">|&gt;</span> </span>
-<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.POSIXct), \(x) <span class="fu">force_tz</span>(x, tzs[[site]])))</span>
-<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">arrange</span>(record_id, Datetime)</span>
-<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a><span class="fu">## Translate comments into english</span></span>
-<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a>Native language is translated into English with AI and later checked by a site researcher.</span>
-<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: translate into english with AI</span></span>
-<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ellmer)</span></span>
-<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a><span class="co"># #Providing the relevant codebook portions</span></span>
-<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a><span class="co"># chat &lt;- chat_openai(paste0(&quot;Clean the dataset according to the instructions in the output structure.&quot;))</span></span>
-<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a><span class="co"># #Providing the input</span></span>
-<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a><span class="co"># data_red &lt;-</span></span>
-<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a><span class="co"># data|&gt;</span></span>
-<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(record_id, loc_spec, descr, identity_spec, future_use)</span></span>
-<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a><span class="co"># data_red &lt;-</span></span>
-<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_red |&gt;</span></span>
-<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a><span class="co">#   pmap(~ paste(paste(names(data_red), c(...), sep = &quot;: &quot;), collapse = &quot;, &quot;))</span></span>
-<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a><span class="co"># #creating an output structure</span></span>
-<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a><span class="co"># type_data &lt;- type_object(</span></span>
-<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a><span class="co">#   record_id = type_string(&quot;use the record_id information&quot;),</span></span>
-<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a><span class="co">#   loc_spec_english = type_string(&quot;Translate (or if in english already, copy) the &#39;loc_spec&#39; column here. Question: Please specify the location which describes the location where you made the experience?&quot;, required = FALSE),</span></span>
-<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a><span class="co">#   descr_english = type_string(&quot;Translate (or if in english already, copy) the &#39;descr&#39; column here. Question: Please provide a brief description of your experience, including the location, the activity you were performing and what feelings it triggered for you.&quot;, required = FALSE),</span></span>
-<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a><span class="co">#   identity_spec_english = type_string(&quot;Translate (or if in english already, copy) the &#39;identity_spec&#39; column here. Question: Who provided this feedback?&quot;, required = FALSE),</span></span>
-<span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a><span class="co">#   future_use_english = type_string(&quot;Translate (or if in english already, copy) the &#39;future_use&#39; column here. Question: Explain how this experience will influence your future use of the light glasses, if at all.&quot;, required = FALSE)</span></span>
-<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
-<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
-<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a><span class="co"># parallel_chat_structured(</span></span>
-<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a><span class="co">#   chat,</span></span>
-<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_red,</span></span>
-<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a><span class="co">#   type = type_data</span></span>
-<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
-<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a><span class="co"># #Ensure that no NA is caught as string</span></span>
-<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
-<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_llm |&gt;</span></span>
-<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(across(everything(), \(x) case_when(x == &quot;NA&quot; ~ NA, .default = x)))</span></span>
-<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a><span class="co"># #check that input and output are identical</span></span>
-<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a><span class="co"># stopifnot(&quot;Input must by identical to output check&quot; =</span></span>
-<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a><span class="co">#             all(data_llm$record_id == data$record_id, na.rm = TRUE))</span></span>
-<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
-<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a><span class="co">#   data |&gt; </span></span>
-<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(record_id, Datetime, loc_spec, descr, identity_spec, future_use) |&gt; </span></span>
-<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a><span class="co">#   bind_cols(data_llm |&gt; select(-record_id))</span></span>
-<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a><span class="co"># path &lt;- &quot;../data/AI_translations/&quot;</span></span>
-<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a><span class="co"># if(!dir.exists(path)) dir.create(path, recursive = TRUE)</span></span>
-<span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a><span class="co"># write_csv(data_llm, &quot;../data/AI_translations/experiencelog.csv&quot;)</span></span>
-<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a>data_llm <span class="ot">&lt;-</span> </span>
-<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">&quot;../data/AI_translations/experiencelog.csv&quot;</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(loc_spec, descr, identity_spec, future_use))</span>
-<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a><span class="co">#add output to original</span></span>
-<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">left_join</span>(data_llm, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;record_id&quot;</span>, <span class="st">&quot;Datetime&quot;</span>))</span>
-<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
-<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
-<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">ends_with</span>(<span class="st">&quot;english&quot;</span>), \(x) <span class="fu">add_label</span>(x, <span class="st">&quot;English translation&quot;</span>)</span>
-<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a>                ))</span>
-<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarize results</span></span>
-<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> </span>
-<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a><span class="fu">table_general</span>(</span>
-<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
-<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(</span>
-<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span><span class="fu">c</span>(Datetime, is_past, loc_spec, descr, </span>
-<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a>         identity_spec, future_use, <span class="fu">ends_with</span>(<span class="st">&quot;english&quot;</span>))</span>
-<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a>      ), </span>
-<span id="cb16-202"><a href="#cb16-202" aria-hidden="true" tabindex="-1"></a>  <span class="at">header =</span> <span class="st">&quot;Experience log&quot;</span>)</span>
-<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table <span class="sc">|&gt;</span> <span class="fu">as_gt</span>(), <span class="at">filename =</span> <span class="st">&quot;../output/tables/table_experiencelog.png&quot;</span>, <span class="at">vwidth =</span> <span class="dv">800</span>)</span>
-<span id="cb16-205"><a href="#cb16-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-207"><a href="#cb16-207" aria-hidden="true" tabindex="-1"></a><span class="fu">### Export</span></span>
-<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-212"><a href="#cb16-212" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">Id =</span> record_id)</span>
-<span id="cb16-213"><a href="#cb16-213" aria-hidden="true" tabindex="-1"></a>experiencelog <span class="ot">&lt;-</span> data</span>
-<span id="cb16-214"><a href="#cb16-214" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">&quot;../data/imported/continuous/&quot;</span></span>
-<span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">dir.exists</span>(path)) <span class="fu">dir.create</span>(path, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(experiencelog, <span class="at">file =</span> <span class="st">&quot;../data/imported/continuous/experiencelog.RData&quot;</span>)</span>
-<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Import experience log&quot;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Johannes Zauner&quot;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">    self-contained: true</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preface</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>This document imports the <span class="in">`experience log`</span> and shows descriptive statistics for the site.</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setup</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(LightLogR)</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>site <span class="ot">&lt;-</span> <span class="st">&quot;IZTECH&quot;</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>remote <span class="ot">&lt;-</span> </span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/&quot;</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;labeling&quot;</span>,</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;radio_factors&quot;</span>,</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;add_label&quot;</span>,</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;time_summaries&quot;</span>,</span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;prepare_codebook&quot;</span>,</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;filefinder&quot;</span>,</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;general_parameters&quot;</span>,</span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;coltype_checker&quot;</span>,</span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;diarydate&quot;</span>,</span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;wearlog_plausibility&quot;</span>,</span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;tables&quot;</span></span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span> <span class="fu">walk</span>(\(x) <span class="fu">source</span>(<span class="fu">paste0</span>(remote, x, <span class="st">&quot;.R&quot;</span>)))</span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preparation</span></span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a><span class="co">#collect codebook</span></span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> <span class="fu">prepare_codebook</span>(<span class="st">&quot;MeLiDosExperienceLog_DataDictionary_2024-10-16.csv&quot;</span>)</span>
+<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a><span class="co">#collect files</span></span>
+<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">filefinder</span>(<span class="st">&quot;experiencelog&quot;</span>, <span class="at">continuous =</span> <span class="cn">TRUE</span>, <span class="at">individual =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a><span class="co">#import files</span></span>
+<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(files, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(redcap_repeat_instance)</span>
+<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a><span class="co">#combine itentity and social columns</span></span>
+<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> </span>
+<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">.before =</span> identity___1,</span>
+<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">identity =</span> <span class="fu">case_when</span>(identity___1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a>                         identity___2 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a>                         identity___3 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a>                         identity___4 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
+<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a>                         identity___5 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="fu">as.character</span>(),</span>
+<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">social_type =</span> <span class="fu">case_when</span>(social_type___1 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a>                         social_type___2 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a>                         social_type___3 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a>                         social_type___4 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> <span class="fu">as.character</span>()</span>
+<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="fu">contains</span>(<span class="st">&quot;identity__&quot;</span>), <span class="fu">contains</span>(<span class="st">&quot;social_type__&quot;</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">feedback =</span> <span class="fu">as.logical</span>(feedback),</span>
+<span id="cb22-74"><a href="#cb22-74" aria-hidden="true" tabindex="-1"></a>         <span class="at">removal =</span> <span class="fu">as.logical</span>(removal))</span>
+<span id="cb22-75"><a href="#cb22-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a><span class="co">#check column types</span></span>
+<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a>coltype_check <span class="ot">&lt;-</span> <span class="fu">coltype_checker</span>(codebook, data)</span>
+<span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a>coltype_check<span class="sc">$</span>details <span class="sc">|&gt;</span> <span class="fu">gt</span>()</span>
+<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a><span class="co">#collect relevant columns: POSIXct, Date &amp; numeric</span></span>
+<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a>relevant_columns <span class="ot">&lt;-</span> </span>
+<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a>  coltype_check<span class="sc">$</span>details <span class="sc">|&gt;</span> </span>
+<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(col)</span>
+<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a><span class="co">#add specific character columns</span></span>
+<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a>relevant_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;record_id&quot;</span>, relevant_columns)</span>
+<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a><span class="co">#select relevant columns</span></span>
+<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">any_of</span>(relevant_columns))</span>
+<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a><span class="co">#label variables</span></span>
+<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
+<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_radio_factors</span>(codebook, </span>
+<span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a>                    <span class="at">var_col =</span> <span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>, </span>
+<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a>                    <span class="at">type_col =</span> <span class="st">`</span><span class="at">Field Type</span><span class="st">`</span>,</span>
+<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a>                    <span class="at">levels_col =</span> <span class="st">`</span><span class="at">Choices, Calculations, OR Slider Labels</span><span class="st">`</span></span>
+<span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a>                    ) <span class="sc">|&gt;</span> </span>
+<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_col_labels</span>(codebook, <span class="at">var_col =</span> <span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>, <span class="at">label_col =</span> <span class="st">`</span><span class="at">Field Label</span><span class="st">`</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(record_id, <span class="fu">any_of</span>(codebook<span class="sc">$</span><span class="st">`</span><span class="at">Variable / Field Name</span><span class="st">`</span>))<span class="sc">|&gt;</span> </span>
+<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(uuid_2<span class="sc">:</span>serializedresult_2, startdate_2<span class="sc">:</span>scheduledate_2))</span>
+<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
+<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(past, current),</span>
+<span id="cb22-103"><a href="#cb22-103" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;is_past&quot;</span>),</span>
+<span id="cb22-104"><a href="#cb22-104" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;Datetime&quot;</span></span>
+<span id="cb22-105"><a href="#cb22-105" aria-hidden="true" tabindex="-1"></a>               ) <span class="sc">|&gt;</span> </span>
+<span id="cb22-106"><a href="#cb22-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Datetime) <span class="sc">|&gt;</span> </span>
+<span id="cb22-107"><a href="#cb22-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="at">.after =</span> record_id,</span>
+<span id="cb22-108"><a href="#cb22-108" aria-hidden="true" tabindex="-1"></a>           Datetime, is_past) <span class="sc">|&gt;</span> </span>
+<span id="cb22-109"><a href="#cb22-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.POSIXct), \(x) <span class="fu">force_tz</span>(x, tzs[[site]])))</span>
+<span id="cb22-110"><a href="#cb22-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-111"><a href="#cb22-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-114"><a href="#cb22-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-115"><a href="#cb22-115" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">arrange</span>(record_id, Datetime)</span>
+<span id="cb22-116"><a href="#cb22-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-117"><a href="#cb22-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-118"><a href="#cb22-118" aria-hidden="true" tabindex="-1"></a><span class="fu">## Translate comments into english</span></span>
+<span id="cb22-119"><a href="#cb22-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-120"><a href="#cb22-120" aria-hidden="true" tabindex="-1"></a>Native language is translated into English with AI and later checked by a site researcher.</span>
+<span id="cb22-121"><a href="#cb22-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-124"><a href="#cb22-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-125"><a href="#cb22-125" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: translate into english with AI</span></span>
+<span id="cb22-126"><a href="#cb22-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-127"><a href="#cb22-127" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ellmer)</span></span>
+<span id="cb22-128"><a href="#cb22-128" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb22-129"><a href="#cb22-129" aria-hidden="true" tabindex="-1"></a><span class="co"># #Providing the relevant codebook portions</span></span>
+<span id="cb22-130"><a href="#cb22-130" aria-hidden="true" tabindex="-1"></a><span class="co"># chat &lt;- chat_openai(paste0(&quot;Clean the dataset according to the instructions in the output structure.&quot;))</span></span>
+<span id="cb22-131"><a href="#cb22-131" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb22-132"><a href="#cb22-132" aria-hidden="true" tabindex="-1"></a><span class="co"># #Providing the input</span></span>
+<span id="cb22-133"><a href="#cb22-133" aria-hidden="true" tabindex="-1"></a><span class="co"># data_red &lt;-</span></span>
+<span id="cb22-134"><a href="#cb22-134" aria-hidden="true" tabindex="-1"></a><span class="co"># data|&gt;</span></span>
+<span id="cb22-135"><a href="#cb22-135" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(record_id, loc_spec, descr, identity_spec, future_use)</span></span>
+<span id="cb22-136"><a href="#cb22-136" aria-hidden="true" tabindex="-1"></a><span class="co"># data_red &lt;-</span></span>
+<span id="cb22-137"><a href="#cb22-137" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_red |&gt;</span></span>
+<span id="cb22-138"><a href="#cb22-138" aria-hidden="true" tabindex="-1"></a><span class="co">#   pmap(~ paste(paste(names(data_red), c(...), sep = &quot;: &quot;), collapse = &quot;, &quot;))</span></span>
+<span id="cb22-139"><a href="#cb22-139" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb22-140"><a href="#cb22-140" aria-hidden="true" tabindex="-1"></a><span class="co"># #creating an output structure</span></span>
+<span id="cb22-141"><a href="#cb22-141" aria-hidden="true" tabindex="-1"></a><span class="co"># type_data &lt;- type_object(</span></span>
+<span id="cb22-142"><a href="#cb22-142" aria-hidden="true" tabindex="-1"></a><span class="co">#   record_id = type_string(&quot;use the record_id information&quot;),</span></span>
+<span id="cb22-143"><a href="#cb22-143" aria-hidden="true" tabindex="-1"></a><span class="co">#   loc_spec_english = type_string(&quot;Translate (or if in english already, copy) the &#39;loc_spec&#39; column here. Question: Please specify the location which describes the location where you made the experience?&quot;, required = FALSE),</span></span>
+<span id="cb22-144"><a href="#cb22-144" aria-hidden="true" tabindex="-1"></a><span class="co">#   descr_english = type_string(&quot;Translate (or if in english already, copy) the &#39;descr&#39; column here. Question: Please provide a brief description of your experience, including the location, the activity you were performing and what feelings it triggered for you.&quot;, required = FALSE),</span></span>
+<span id="cb22-145"><a href="#cb22-145" aria-hidden="true" tabindex="-1"></a><span class="co">#   identity_spec_english = type_string(&quot;Translate (or if in english already, copy) the &#39;identity_spec&#39; column here. Question: Who provided this feedback?&quot;, required = FALSE),</span></span>
+<span id="cb22-146"><a href="#cb22-146" aria-hidden="true" tabindex="-1"></a><span class="co">#   future_use_english = type_string(&quot;Translate (or if in english already, copy) the &#39;future_use&#39; column here. Question: Explain how this experience will influence your future use of the light glasses, if at all.&quot;, required = FALSE)</span></span>
+<span id="cb22-147"><a href="#cb22-147" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb22-148"><a href="#cb22-148" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb22-149"><a href="#cb22-149" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
+<span id="cb22-150"><a href="#cb22-150" aria-hidden="true" tabindex="-1"></a><span class="co"># parallel_chat_structured(</span></span>
+<span id="cb22-151"><a href="#cb22-151" aria-hidden="true" tabindex="-1"></a><span class="co">#   chat,</span></span>
+<span id="cb22-152"><a href="#cb22-152" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_red,</span></span>
+<span id="cb22-153"><a href="#cb22-153" aria-hidden="true" tabindex="-1"></a><span class="co">#   type = type_data</span></span>
+<span id="cb22-154"><a href="#cb22-154" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb22-155"><a href="#cb22-155" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb22-156"><a href="#cb22-156" aria-hidden="true" tabindex="-1"></a><span class="co"># #Ensure that no NA is caught as string</span></span>
+<span id="cb22-157"><a href="#cb22-157" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
+<span id="cb22-158"><a href="#cb22-158" aria-hidden="true" tabindex="-1"></a><span class="co">#   data_llm |&gt;</span></span>
+<span id="cb22-159"><a href="#cb22-159" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(across(everything(), \(x) case_when(x == &quot;NA&quot; ~ NA, .default = x)))</span></span>
+<span id="cb22-160"><a href="#cb22-160" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb22-161"><a href="#cb22-161" aria-hidden="true" tabindex="-1"></a><span class="co"># #check that input and output are identical</span></span>
+<span id="cb22-162"><a href="#cb22-162" aria-hidden="true" tabindex="-1"></a><span class="co"># stopifnot(&quot;Input must by identical to output check&quot; =</span></span>
+<span id="cb22-163"><a href="#cb22-163" aria-hidden="true" tabindex="-1"></a><span class="co">#             all(data_llm$record_id == data$record_id, na.rm = TRUE))</span></span>
+<span id="cb22-164"><a href="#cb22-164" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb22-165"><a href="#cb22-165" aria-hidden="true" tabindex="-1"></a><span class="co"># data_llm &lt;-</span></span>
+<span id="cb22-166"><a href="#cb22-166" aria-hidden="true" tabindex="-1"></a><span class="co">#   data |&gt; </span></span>
+<span id="cb22-167"><a href="#cb22-167" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(record_id, Datetime, loc_spec, descr, identity_spec, future_use) |&gt; </span></span>
+<span id="cb22-168"><a href="#cb22-168" aria-hidden="true" tabindex="-1"></a><span class="co">#   bind_cols(data_llm |&gt; select(-record_id))</span></span>
+<span id="cb22-169"><a href="#cb22-169" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb22-170"><a href="#cb22-170" aria-hidden="true" tabindex="-1"></a><span class="co"># path &lt;- &quot;../data/AI_translations/&quot;</span></span>
+<span id="cb22-171"><a href="#cb22-171" aria-hidden="true" tabindex="-1"></a><span class="co"># if(!dir.exists(path)) dir.create(path, recursive = TRUE)</span></span>
+<span id="cb22-172"><a href="#cb22-172" aria-hidden="true" tabindex="-1"></a><span class="co"># write_csv(data_llm, &quot;../data/AI_translations/experiencelog.csv&quot;)</span></span>
+<span id="cb22-173"><a href="#cb22-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-174"><a href="#cb22-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-175"><a href="#cb22-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-178"><a href="#cb22-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-179"><a href="#cb22-179" aria-hidden="true" tabindex="-1"></a>data_llm <span class="ot">&lt;-</span> </span>
+<span id="cb22-180"><a href="#cb22-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">&quot;../data/AI_translations/experiencelog.csv&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-181"><a href="#cb22-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(loc_spec, descr, identity_spec, future_use))</span>
+<span id="cb22-182"><a href="#cb22-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-183"><a href="#cb22-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-184"><a href="#cb22-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### Manual correction</span></span>
+<span id="cb22-185"><a href="#cb22-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-186"><a href="#cb22-186" aria-hidden="true" tabindex="-1"></a>Each site checked the automated translations and provided suggestions in case they needed adjustment. The following code consolidates the two versions</span>
+<span id="cb22-187"><a href="#cb22-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-190"><a href="#cb22-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-191"><a href="#cb22-191" aria-hidden="true" tabindex="-1"></a>data_corrected <span class="ot">&lt;-</span> </span>
+<span id="cb22-192"><a href="#cb22-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">&quot;../data/AI_translations/experiencelog_corrected.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb22-193"><a href="#cb22-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-194"><a href="#cb22-194" aria-hidden="true" tabindex="-1"></a>relevant_names <span class="ot">&lt;-</span> </span>
+<span id="cb22-195"><a href="#cb22-195" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data_corrected) <span class="sc">|&gt;</span> </span>
+<span id="cb22-196"><a href="#cb22-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(<span class="fu">grepl</span>(<span class="st">&quot;suggestion&quot;</span>, <span class="fu">names</span>(data_corrected))) <span class="sc">|&gt;</span> </span>
+<span id="cb22-197"><a href="#cb22-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_remove_all</span>(<span class="st">&quot;^suggestion_&quot;</span>)</span>
+<span id="cb22-198"><a href="#cb22-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-199"><a href="#cb22-199" aria-hidden="true" tabindex="-1"></a>data_corrected <span class="ot">&lt;-</span> </span>
+<span id="cb22-200"><a href="#cb22-200" aria-hidden="true" tabindex="-1"></a>data_corrected <span class="sc">|&gt;</span></span>
+<span id="cb22-201"><a href="#cb22-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb22-202"><a href="#cb22-202" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb22-203"><a href="#cb22-203" aria-hidden="true" tabindex="-1"></a>      <span class="fu">all_of</span>(<span class="fu">paste0</span>(relevant_names, <span class="st">&quot;_english&quot;</span>)),</span>
+<span id="cb22-204"><a href="#cb22-204" aria-hidden="true" tabindex="-1"></a>      \(x) {</span>
+<span id="cb22-205"><a href="#cb22-205" aria-hidden="true" tabindex="-1"></a>        sug <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;suggestion_&quot;</span>, <span class="fu">cur_column</span>()) <span class="sc">|&gt;</span> <span class="fu">str_remove</span>(<span class="st">&quot;_english$&quot;</span>)</span>
+<span id="cb22-206"><a href="#cb22-206" aria-hidden="true" tabindex="-1"></a>        <span class="fu">coalesce</span>(<span class="fu">get</span>(sug), x)</span>
+<span id="cb22-207"><a href="#cb22-207" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb22-208"><a href="#cb22-208" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-209"><a href="#cb22-209" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-210"><a href="#cb22-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-211"><a href="#cb22-211" aria-hidden="true" tabindex="-1"></a>data_llm <span class="ot">&lt;-</span> </span>
+<span id="cb22-212"><a href="#cb22-212" aria-hidden="true" tabindex="-1"></a>data_llm <span class="sc">|&gt;</span></span>
+<span id="cb22-213"><a href="#cb22-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb22-214"><a href="#cb22-214" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb22-215"><a href="#cb22-215" aria-hidden="true" tabindex="-1"></a>      <span class="fu">all_of</span>(<span class="fu">paste0</span>(relevant_names, <span class="st">&quot;_english&quot;</span>)),</span>
+<span id="cb22-216"><a href="#cb22-216" aria-hidden="true" tabindex="-1"></a>      \(x) {</span>
+<span id="cb22-217"><a href="#cb22-217" aria-hidden="true" tabindex="-1"></a>        data_corrected[[<span class="fu">cur_column</span>()]]</span>
+<span id="cb22-218"><a href="#cb22-218" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb22-219"><a href="#cb22-219" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-220"><a href="#cb22-220" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-221"><a href="#cb22-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-222"><a href="#cb22-222" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-223"><a href="#cb22-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-226"><a href="#cb22-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-227"><a href="#cb22-227" aria-hidden="true" tabindex="-1"></a><span class="co">#add output to original</span></span>
+<span id="cb22-228"><a href="#cb22-228" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">left_join</span>(data_llm, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;record_id&quot;</span>, <span class="st">&quot;Datetime&quot;</span>))</span>
+<span id="cb22-229"><a href="#cb22-229" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span></span>
+<span id="cb22-230"><a href="#cb22-230" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
+<span id="cb22-231"><a href="#cb22-231" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">ends_with</span>(<span class="st">&quot;english&quot;</span>), \(x) <span class="fu">add_label</span>(x, <span class="st">&quot;English translation&quot;</span>)</span>
+<span id="cb22-232"><a href="#cb22-232" aria-hidden="true" tabindex="-1"></a>                ))</span>
+<span id="cb22-233"><a href="#cb22-233" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-234"><a href="#cb22-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-235"><a href="#cb22-235" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarize results</span></span>
+<span id="cb22-236"><a href="#cb22-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-239"><a href="#cb22-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-240"><a href="#cb22-240" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> </span>
+<span id="cb22-241"><a href="#cb22-241" aria-hidden="true" tabindex="-1"></a><span class="fu">table_general</span>(</span>
+<span id="cb22-242"><a href="#cb22-242" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span> </span>
+<span id="cb22-243"><a href="#cb22-243" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(</span>
+<span id="cb22-244"><a href="#cb22-244" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span><span class="fu">c</span>(Datetime, is_past, loc_spec, descr, </span>
+<span id="cb22-245"><a href="#cb22-245" aria-hidden="true" tabindex="-1"></a>         identity_spec, future_use, <span class="fu">ends_with</span>(<span class="st">&quot;english&quot;</span>))</span>
+<span id="cb22-246"><a href="#cb22-246" aria-hidden="true" tabindex="-1"></a>      ), </span>
+<span id="cb22-247"><a href="#cb22-247" aria-hidden="true" tabindex="-1"></a>  <span class="at">header =</span> <span class="st">&quot;Experience log&quot;</span>)</span>
+<span id="cb22-248"><a href="#cb22-248" aria-hidden="true" tabindex="-1"></a>table</span>
+<span id="cb22-249"><a href="#cb22-249" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table <span class="sc">|&gt;</span> <span class="fu">as_gt</span>(), <span class="at">filename =</span> <span class="st">&quot;../output/tables/table_experiencelog.png&quot;</span>, <span class="at">vwidth =</span> <span class="dv">800</span>)</span>
+<span id="cb22-250"><a href="#cb22-250" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-251"><a href="#cb22-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-252"><a href="#cb22-252" aria-hidden="true" tabindex="-1"></a><span class="fu">### Export</span></span>
+<span id="cb22-253"><a href="#cb22-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-256"><a href="#cb22-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-257"><a href="#cb22-257" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">Id =</span> record_id)</span>
+<span id="cb22-258"><a href="#cb22-258" aria-hidden="true" tabindex="-1"></a>experiencelog <span class="ot">&lt;-</span> data</span>
+<span id="cb22-259"><a href="#cb22-259" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">&quot;../data/imported/continuous/&quot;</span></span>
+<span id="cb22-260"><a href="#cb22-260" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">dir.exists</span>(path)) <span class="fu">dir.create</span>(path, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-261"><a href="#cb22-261" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(experiencelog, <span class="at">file =</span> <span class="st">&quot;../data/imported/continuous/experiencelog.RData&quot;</span>)</span>
+<span id="cb22-262"><a href="#cb22-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

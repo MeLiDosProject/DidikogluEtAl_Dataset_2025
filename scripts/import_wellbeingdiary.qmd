@@ -82,10 +82,12 @@ data <- data |> diarydate(startdate_2)
 attr(data$Date, "label") <- "Date"
 ```
 
+
+
 ## Calculate WHO5 score
 
 ```{r}
-data <- data |> who5_scoring() 
+data <- data |> who5_scoring()
 ```
 
 

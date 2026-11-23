@@ -4,3 +4,9 @@
 .Ruserdata
 .DS_Store
 .positai
+data_note
+scripts/*.html
+scripts/*_files/
+scripts/.quarto/
+output/rebuild/
+README.html

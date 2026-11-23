@@ -22,11 +22,13 @@ grand_overview <- function(dataset, #light exposure dataset
                            variable = MEDI, #column in dataset containing the plot value
                            Datetime.colname = Datetime, #column in dataset containing the datetime value
                            Id.colname = Id,  #column in dataset containing the Id
+                           ov_y.text.size = 8,
                            photoperiod_sequence = 0.5,
                            map_projection = "+proj=eqc",
                            map_site_label_color = "black",
                            map_y_offset_label = 0.08,
-                           dp_y.axis.label = "Melanopic EDI (lx)"
+                           dp_y.axis.label = "Melanopic EDI (lx)",
+                           date.handler = stats::median                           
                            ) {
 
   panels <- match.arg(panels)
@@ -41,6 +43,8 @@ grand_overview <- function(dataset, #light exposure dataset
   
   coordinates_string <- 
     paste(lat_string, lon_string, sep = ", ")
+  
+  if (is.null(names(site_color)) || all(names(site_color) == "")) names(site_color) <- site
   
   # overview ----------------------------------------------------------------
   
@@ -62,7 +66,7 @@ grand_overview <- function(dataset, #light exposure dataset
       scale_color_manual(values = site_color) +
       guides(colour = "none") +
       labs(y = "ID") +
-      theme(axis.text.y = element_text(size = 8))
+      theme(axis.text.y = element_text(size = ov_y.text.size))
     
     if (panels == "overview")
       return(P_overview)
@@ -231,11 +235,12 @@ grand_overview <- function(dataset, #light exposure dataset
       aggregate_Date(
         unit = "15 mins",
         numeric.handler = \(x) median(x, na.rm = TRUE),
+        date.handler = date.handler,
         upper95 = quantile({{ variable }}, 0.975, na.rm = TRUE),
         upper75 = quantile({{ variable }}, 0.875, na.rm = TRUE),
         upper50 = quantile({{ variable }}, 0.75, na.rm = TRUE),
-        lower50 = quantile({{ variable }}, 0.125, na.rm = TRUE),
-        lower75 = quantile({{ variable }}, 0.25, na.rm = TRUE),
+        lower50 = quantile({{ variable }}, 0.25, na.rm = TRUE),
+        lower75 = quantile({{ variable }}, 0.125, na.rm = TRUE),
         lower95= quantile({{ variable }}, 0.025, na.rm = TRUE)
       ) |> 
       add_photoperiod(coordinates) |> 
@@ -261,9 +266,9 @@ grand_overview <- function(dataset, #light exposure dataset
         caption = glue(
           "<i>daytime</i>, <i>evening</i>, and <i>sleep</i> indicate 
           recommendations for healthy light exposure (Brown et al., 2022). 
-          <b>Median</b> with <b style = 'color:{alpha(country_colors['Turkey'], 
-          alpha = 0.9)}'>50%</b>, <b style = 'color:{alpha(country_colors['Turkey'], 
-          alpha = 0.7)}'>75%</b>, or <b style = 'color:{alpha(country_colors['Turkey'], 
+          <b>Median</b> with <b style = 'color:{alpha(site_color[site], 
+          alpha = 0.9)}'>50%</b>, <b style = 'color:{alpha(site_color[site], 
+          alpha = 0.7)}'>75%</b>, or <b style = 'color:{alpha(site_color[site], 
           alpha = 0.5)}'>95%</b> of data."
         )
       ) +

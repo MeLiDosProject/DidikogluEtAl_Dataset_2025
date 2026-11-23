@@ -8,7 +8,7 @@
 
 ### Personal light exposure dataset for Izmir, Türkiye; collected by Izmir Institute of Technology (IZTECH) following the protocol of Guidolin et al. 2024 (MeLiDos field study)
 
-**Version v1.0.1**
+**Version v1.2.0**
 
 <!-- badges: start -->
 
@@ -55,10 +55,20 @@ persistent identifier (DOI).
 APA reference:
 
 > Didikoglu, A., Akgun, S. G., Aydin, S. N., Kayar, Z., Zauner, J., &
-> Spitschan, M. (2025). Personal light exposure dataset for Izmir,
-> Türkiye (Version 1.0.1) \[Data set\]. URL:
+> Spitschan, M. (2026). Personal light exposure dataset for Izmir,
+> Türkiye (Version 1.2.0) \[Data set\]. URL:
 > <https://github.com/MeLiDosProject/DidikogluEtAl_Dataset_2025>. DOI:
 > doi.org/10.5281/zenodo.16568109
+
+### Reproducing the corrected exports
+
+The current exports are in `data/imported/`; their source importers are
+in `scripts/import_*.qmd`. See [CHANGELOG.md](CHANGELOG.md) for the
+changes in this release and [REPRODUCING.md](REPRODUCING.md) for
+execution and verification. The release includes a fixed copy of its
+metadata helpers and codebooks in `metadata/`. Raw source records remain
+available for traceability. Superseded importers and generated HTML
+reports are available in Git history.
 
 ## Descriptive statistics
 

@@ -39,9 +39,6 @@ authors:
     orcid: 'https://orcid.org/0000-0002-8572-9268'
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.16568110
-    description: Zenodo archive (V1.0.0)
-  - type: doi
     value: 10.5281/zenodo.16568109
     description: Zenodo Archive (latest version)
 repository-code: >-
@@ -64,5 +61,5 @@ keywords:
   - naturalistic setting
 license: CC-BY-4.0
 commit: 8759a19ca39d797b18154c54d9abf0b693b6995c
-version: 1.0.0
-date-released: '2025-07-29'
+version: 1.2.0
+date-released: '2026-11-23'
